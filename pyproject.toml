@@ -2,7 +2,7 @@
 name = "fish-tank"
 version = "0.1.0"
 description = "A warehouse for AgentQL examples and tutorials"
-authors = ["Your Name <you@example.com>"]
+authors = []
 license = "MIT"
 readme = "README.md"
 
