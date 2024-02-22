@@ -3,7 +3,7 @@ import time
 import webql
 
 # Importing the default PlaywrightWebDriver from AgentQL library
-from webql.web import PlaywrightWebDriver
+from webql.sync_api.web import PlaywrightWebDriver
 
 # Set the URL to the desired website
 URL = "https://www.google.com"
