@@ -13,7 +13,7 @@ NINETENDO_URL = "https://www.nintendo.com/us/store/products/nintendo-switch-oled
 
 def print_header():
     """Prints the header for the data table"""
-    print(f"{'Website':<25} | {'Product ':<20} | {'Price %':<20} ")
+    print(f"{'Website':<25} | {'Product ':<20} | {'Price ':<20} ")
     print("-" * 75)
 
 def print_row(website, product, price):
