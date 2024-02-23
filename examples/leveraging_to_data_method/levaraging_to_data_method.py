@@ -12,6 +12,7 @@ if __name__ == "__main__":
     # Set headless to False to see the browser in action
     driver = PlaywrightWebDriver(headless=False)
 
+    # Define the queries to interact with the page
     QUERY = """
     {
         stock_info
