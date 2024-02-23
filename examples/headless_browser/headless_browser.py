@@ -1,9 +1,6 @@
 """This example demonstrates how to work with default web driver configuration (headless) used by AgentQL."""
 import webql
 
-# Importing the default PlaywrightWebDriver from AgentQL library
-from webql.sync_api.web import PlaywrightWebDriver
-
 # Set the URL to the desired website
 URL = "https://google.com"
 
