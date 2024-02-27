@@ -1,8 +1,9 @@
 """This example demonstrates how to levergae to_data() method provided by AgentQL."""
 import webql
+import asyncio
 
 # Importing the default PlaywrightWebDriver from AgentQL library
-from webql.sync_api.web import PlaywrightWebDriver
+from webql.async_api.web import PlaywrightWebDriver
 
 # Set the URL to the desired website
 AMAZON_URL = "https://www.amazon.com/Nintendo-Switch-OLED-Model-Neon-Joy/dp/B098RL6SBJ/ref=sr_1_2?crid=M1VXR6B580N1&dib=eyJ2IjoiMSJ9.SnJwwaQgWAAz2ipQdcQ--1oD_RFW8sY6H0aMKBzxU62fEEvvrjWWwIInVKw0QRI6Fr9rneWqEj5IVALwzoalaRjoQECDjlhSdCBv8OMJnX27l2_uIaUDVj1iq0Idz4iuxHv9FAxGUqOcIgeXMovxLr9d955NZoMr2Jm-HLEhtYx6P6es96OOMWd8y0Ufofumsilu4dp_sAyaHKAUU59ubjhN1iUFeSIaX-h_xYHLb5k.PM2S_-8ic6AIy9ooBoUCx7_3ooOZytd_8L_GOpXjRcc&dib_tag=se&keywords=nintendo+switch&qid=1708647744&sprefix=nintendo+switch%2Caps%2C308&sr=8-2" 
@@ -19,10 +20,17 @@ def print_row(website, product, price):
     """Prints the data row"""
     print(f"{website:<25} | {product:<20} | {price:<20} ")
 
-if __name__ == "__main__":
-
+async def fetch_price(session_url, query):
     # Set headless to False to see the browser in action
     driver = PlaywrightWebDriver(headless=False)
+    session = await webql.start_async_session(session_url, web_driver=driver)
+    response = await session.query(query)
+    data = await response.nintendo_switch.to_data()
+    await session.stop()
+    return data["price"]
+
+async def get_price_across_websites():
+    
 
     # Define the queries to interact with the page
     PRODUCT_INFO_QUERY = """
@@ -35,40 +43,16 @@ if __name__ == "__main__":
 
     print_header()
 
-    # Start a session with the specified URL and the custom driver
-    session = webql.start_session(AMAZON_URL, web_driver=driver)
+    # Fetch prices concurrently
+    amazon_price, nintendo_price, target_price = await asyncio.gather(
+        fetch_price(AMAZON_URL, PRODUCT_INFO_QUERY),
+        fetch_price(NINETENDO_URL, PRODUCT_INFO_QUERY),
+        fetch_price(TARGET_URL, PRODUCT_INFO_QUERY)
+    )
 
-    # Make API call(s) to AgentQL server to fetch the query
-    response = session.query(PRODUCT_INFO_QUERY)
+    print_row("Amazon", "Nintendo Switch", amazon_price)
+    print_row("Nintendo site", "Nintendo Switch", nintendo_price)
+    print_row("Target", "Nintendo Switch", target_price)
 
-    # Leveraging to_data() method to extract the data from the response
-    data = response.nintendo_switch.to_data()
-
-    print_row("Amazon", "Nintendo Switch", data["price"])
-
-    # Stop the session
-    session.stop()
-
-    # Start a session with the new URL and the same driver
-    session = webql.start_session(NINETENDO_URL, web_driver=driver)
-
-    # Reuse the same query to fetch the data from the new website
-    response = session.query(PRODUCT_INFO_QUERY)
-
-    data = response.nintendo_switch.to_data()
-
-    print_row("Nintendo site", "Nintendo Switch", data["price"])
-
-    # Stop the session
-    session.stop()
-
-    # Repeat the same process for other websites
-    session = webql.start_session(TARGET_URL, web_driver=driver)
-
-    response = session.query(PRODUCT_INFO_QUERY)
-
-    data = response.nintendo_switch.to_data()
-
-    print_row("Target", "Nintendo Switch", data["price"])
-
-    session.stop()
+if __name__ == "__main__":
+    asyncio.run(get_price_across_websites())
