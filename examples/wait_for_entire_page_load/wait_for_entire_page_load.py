@@ -19,7 +19,7 @@ if __name__ == "__main__":
         driver.scroll_to_bottom()
 
         # Wait for the page to load (helps to load the comments on the video)
-        session.wait_for_page_ready_state()
+        driver.wait_for_page_ready_state()
 
     QUERY = """
     {
