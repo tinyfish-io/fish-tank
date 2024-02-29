@@ -1,3 +1,7 @@
+# This example scrapes prices from nike.com using a simple query and the to_data method
+# It then uses pandas to output a table to a file
+
+
 import webql
 import json
 import pandas as pd
