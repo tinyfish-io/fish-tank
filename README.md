@@ -25,3 +25,4 @@
 | Save and reuse logged in state     | save_and_load_context.py                    | [save_and_load_context.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/save_and_load_context/save_and_load_context.py)       |
 | Waiting for page to load     | wait_for_entire_page_load.py                    | [wait_for_entire_page_load.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/wait_for_entire_page_load/wait_for_entire_page_load.py)       |
 | Default Popup Handler      | default_popup_handler.py                    | [default_popup_handler.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/default_popup_handler/default_popup_handler.py)       |
+| Leveraging List Query      | list_query_usage.py                    | [list_query_usage.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/list_query_usage/list_query_usage.py)       |
