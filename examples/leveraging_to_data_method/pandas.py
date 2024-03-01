@@ -41,7 +41,7 @@ df = pd.DataFrame.from_dict(data)
 #This makes it super simple to print a table
 print(df.to_string())
 
-#We can even print that table to a file
+#We can even write that table to a file                                                                  
 with open('nikeTable.txt', 'a') as f:
     f.write(df.to_string())
 
