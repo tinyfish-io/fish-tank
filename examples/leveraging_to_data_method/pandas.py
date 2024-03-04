@@ -1,4 +1,4 @@
-This example scrapes prices from nike.com using a simple query and the to_data method. It then uses pandas to output a table to a file
+# This example scrapes prices from nike.com using a simple query and the to_data method. It then uses pandas to output a table to a file
 # It then uses pandas to output a table to a file
 
 
