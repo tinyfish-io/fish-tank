@@ -398,6 +398,23 @@ pyee = "11.0.1"
 typing-extensions = {version = "*", markers = "python_version <= \"3.8\""}
 
 [[package]]
+name = "playwright-stealth"
+version = "1.0.6"
+description = "playwright stealth"
+optional = false
+python-versions = ">=3, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+files = [
+    {file = "playwright-stealth-1.0.6.tar.gz", hash = "sha256:b504d951d00fac755c7d13665a29611d415180510bd7d23f14ebc89439ba2043"},
+    {file = "playwright_stealth-1.0.6-py3-none-any.whl", hash = "sha256:b1b2bcf58eb6859aa53d42c49b91c4e27b74a6d13fc3d0c85eea513dd55efda3"},
+]
+
+[package.dependencies]
+playwright = "*"
+
+[package.extras]
+test = ["pytest"]
+
+[[package]]
 name = "pluggy"
 version = "1.4.0"
 description = "plugin and hook calling mechanisms for python"
@@ -672,19 +689,20 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "webql"
-version = "0.2.2"
+version = "0.2.6"
 description = "Tiny Fish WebQL Python Client"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "webql-0.2.2-py3-none-any.whl", hash = "sha256:64483637ec8f4822cbfb54dfd312b04d35d4c03fb0dedf54c5af057e94721e1e"},
-    {file = "webql-0.2.2.tar.gz", hash = "sha256:b914fd5bf1f5f61adebfea142daf06d3c34259b989c97ad1f77df0c85497d5e2"},
+    {file = "webql-0.2.6-py3-none-any.whl", hash = "sha256:303e031bcee8b0c3ce7bfd72377ddb8f3db9ab5ceffb0722e5e921a795476512"},
+    {file = "webql-0.2.6.tar.gz", hash = "sha256:e496855adb7c6ae2c9bc49c63fb89ee8e6876dc5427aa87f661dbf0ad63be06a"},
 ]
 
 [package.dependencies]
 aiofiles = ">=23.2.1,<24.0.0"
 httpx = ">=0.26.0,<0.27.0"
 playwright = ">=1.0.0,<2.0.0"
+playwright-stealth = ">=1.0.6,<2.0.0"
 pydantic = ">=2.5,<3.0"
 pytest-asyncio = ">=0.23.5,<0.24.0"
 requests = ">=2.31.0,<3.0.0"
