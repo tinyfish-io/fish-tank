@@ -27,7 +27,7 @@ if __name__ == "__main__":
     # Make API call(s) to AgentQL server to fetch the query
     response = session.query(QUERY)
 
-    # Wait for 2 seconds to see the browser in action
+    # Wait for 5 seconds to see the browser in action
     time.sleep(5)
 
     # Stop the session
