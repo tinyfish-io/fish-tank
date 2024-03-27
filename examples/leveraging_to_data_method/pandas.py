@@ -2,11 +2,11 @@
 # It then uses pandas to output a table to a file
 
 
-import webql
+import agentql
 import json
 import pandas as pd
 import logging
-from webql.sync_api.web import PlaywrightWebDriver
+from agentql.sync_api.web import PlaywrightWebDriver
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -15,7 +15,7 @@ log = logging.getLogger(__name__)
 URL = "https://www.nike.com/w/mens-shoes-nik1zy7ok"
 
 driver = PlaywrightWebDriver(headless=False)
-session = webql.start_session(URL, web_driver=driver)
+session = agentql.start_session(URL, web_driver=driver)
 
 QUERY = """
 {

@@ -1,4 +1,4 @@
-import webql
+import agentql
 import os
 
 # Set the URL to the desired website
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     }"""
 
     # Start a session with the specified URL
-    session = webql.start_session(URL)
+    session = agentql.start_session(URL)
 
     # Make API call(s) to AgentQL server to fetch the query
     response = session.query(QUERY)
