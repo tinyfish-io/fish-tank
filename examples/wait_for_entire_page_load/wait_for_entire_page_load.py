@@ -1,7 +1,7 @@
 """This example demonstrates how to wait for the page to load before querying the page and levergae scroll method."""
-import webql
+import agentql
 
-from webql.sync_api.web import PlaywrightWebDriver
+from agentql.sync_api.web import PlaywrightWebDriver
 
 # Yotube video URL to demonstrate the example for loading comments on the video
 URL = "https://www.youtube.com/watch?v=F6hmwkI3n64"

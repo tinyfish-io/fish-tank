@@ -1,9 +1,9 @@
-import webql
+import agentql
 
 #import https://pypi.org/project/playwright-dompath/ 
 from playwright_dompath.dompath_sync import xpath_path
 
-session = webql.start_session("https://www.google.com")
+session = agentql.start_session("https://www.google.com")
 
 QUERY = """
 {

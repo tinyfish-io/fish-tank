@@ -1,6 +1,6 @@
 """"This is an example of how to use AgentQL to track the cheapest flight price from Skyscanner website."""
-import webql
-from webql.sync_api.web import PlaywrightWebDriver
+import agentql
+from agentql.sync_api.web import PlaywrightWebDriver
 
 # Set the URL to the desired website (Skyscanner in this case)
 URL = "https://www.skyscanner.co.in/"
@@ -24,7 +24,7 @@ if __name__ == "__main__":
         )
 
     # Start a session with the specified URL and the custom driver
-    session = webql.start_session(URL, web_driver=driver)
+    session = agentql.start_session(URL, web_driver=driver)
     
     # Define the queries to interact with the page (You could tweak the queries as per item you want to track on the website)
     QUERY_1 = """
@@ -82,13 +82,13 @@ if __name__ == "__main__":
 
     DATE_QUERY = """
     {
-        march_28_btn
+        april_28_btn
     }
     """
 
     response_date = session.query(DATE_QUERY)
 
-    response_date.march_28_btn.click(force=True)
+    response_date.april_28_btn.click(force=True)
 
     SEARCH_QUERY = """
     {
@@ -114,7 +114,7 @@ if __name__ == "__main__":
     response_6.apply_btn.click(force=True)
 
     # Wait for the page to load (helps to load the flight details)
-    session.wait_for_page_ready_state()
+    session.driver.wait_for_page_ready_state()
 
     QUERY_7 = """
     {

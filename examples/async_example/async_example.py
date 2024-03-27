@@ -1,9 +1,9 @@
 """This example demonstrates how to levergae to_data() method provided by AgentQL."""
-import webql
+import agentql
 import asyncio
 
 # Importing the default PlaywrightWebDriver from AgentQL library
-from webql.async_api.web import PlaywrightWebDriver
+from agentql.async_api.web import PlaywrightWebDriver
 
 # Set the URL to the desired website
 AMAZON_URL = "https://www.amazon.com/Nintendo-Switch-OLED-Model-Neon-Joy/dp/B098RL6SBJ/ref=sr_1_2?crid=M1VXR6B580N1&dib=eyJ2IjoiMSJ9.SnJwwaQgWAAz2ipQdcQ--1oD_RFW8sY6H0aMKBzxU62fEEvvrjWWwIInVKw0QRI6Fr9rneWqEj5IVALwzoalaRjoQECDjlhSdCBv8OMJnX27l2_uIaUDVj1iq0Idz4iuxHv9FAxGUqOcIgeXMovxLr9d955NZoMr2Jm-HLEhtYx6P6es96OOMWd8y0Ufofumsilu4dp_sAyaHKAUU59ubjhN1iUFeSIaX-h_xYHLb5k.PM2S_-8ic6AIy9ooBoUCx7_3ooOZytd_8L_GOpXjRcc&dib_tag=se&keywords=nintendo+switch&qid=1708647744&sprefix=nintendo+switch%2Caps%2C308&sr=8-2" 
@@ -23,7 +23,7 @@ def print_row(website, product, price):
 async def fetch_price(session_url, query):
     # Set headless to False to see the browser in action
     driver = PlaywrightWebDriver(headless=False)
-    session = await webql.start_async_session(session_url, web_driver=driver)
+    session = await agentql.start_async_session(session_url, web_driver=driver)
     response = await session.query(query)
     data = await response.nintendo_switch.to_data()
     await session.stop()

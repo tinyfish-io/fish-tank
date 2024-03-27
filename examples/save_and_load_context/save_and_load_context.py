@@ -1,11 +1,11 @@
 """"This example demonstrates how to save and load the user session state using AgentQL."""
 import time
-import webql
+import agentql
 import os
 
 # Importing the default PlaywrightWebDriver from AgentQL library
-from webql.sync_api.web import PlaywrightWebDriver
-from webql.sync_api.session import Session
+from agentql.sync_api.web import PlaywrightWebDriver
+from agentql.sync_api.session import Session
 
 # Set the URL to the desired website
 URL = "https://www.instagram.com"
@@ -19,7 +19,7 @@ def get_user_session_state():
     driver = PlaywrightWebDriver(headless=False)
 
     # Start a session with the specified URL and the custom driver
-    session = webql.start_session(URL, web_driver=driver)
+    session = agentql.start_session(URL, web_driver=driver)
 
     # Define the queries to interact with the page (for login)
     QUERY = """
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     driver = PlaywrightWebDriver(headless=False)
 
     # Start a session with the specified URL and the custom driver and the user session state
-    session = webql.start_session(URL, web_driver=driver, storage_state=user_session_state)
+    session = agentql.start_session(URL, web_driver=driver, storage_state=user_session_state)
 
     # Wait for 5 seconds to see the browser in action
     time.sleep(5)
