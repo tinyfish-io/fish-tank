@@ -1,6 +1,5 @@
 """"This is an example of how to use AgentQL to track the cheapest flight price from Skyscanner website."""
 import agentql
-from agentql.ext.playwright import PlaywrightWebDriverSync
 
 # Set the URL to the desired website (Skyscanner in this case)
 URL = "https://www.skyscanner.co.in/"
@@ -13,18 +12,15 @@ USER_AGENT_INFO = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/5
 
 if __name__ == "__main__":
 
-    # Set headless to False to see the browser in action
-    driver = PlaywrightWebDriverSync(headless=False)
+    # Start a session with the specified URL
+    session = agentql.start_session(URL)
 
     # Enable stealth mode to prevent bot detection by the website
-    driver.enable_stealth_mode(
+    session.driver.enable_stealth_mode(
         webgl_vendor=VENDOR_INFO,
         webgl_renderer=RENDERER_INFO,
         nav_user_agent=USER_AGENT_INFO,
         )
-
-    # Start a session with the specified URL and the custom driver
-    session = agentql.start_session(URL, web_driver=driver)
     
     # Define the queries to interact with the page (You could tweak the queries as per item you want to track on the website)
     QUERY_1 = """
@@ -109,7 +105,7 @@ if __name__ == "__main__":
     response_6 = session.query(QUERY_6)
 
     # Scroll the page to click on the apply button
-    driver.scroll_page(scroll_direction="DOWN")
+    session.driver.scroll_page(scroll_direction="DOWN")
 
     response_6.apply_btn.click(force=True)
 
