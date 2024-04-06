@@ -1,6 +1,5 @@
 import time
 import agentql
-from agentql.sync_api.web import PlaywrightWebDriver
 
 URL = "https://www.target.com"
 EMAIL = "REPLACE_WITH_YOUR_EMAIL (For target.com)"
@@ -8,11 +7,8 @@ PASSWORD = "REPLACE_WITH_YOUR_PASSWORD (For target.com)"
 
 if __name__ == "__main__":
 
-    # Set headless to False to see the browser in action
-    driver = PlaywrightWebDriver(headless=False)
-
-    # Start a session with the specified URL and the custom driver
-    session = agentql.start_session(URL, web_driver=driver)
+    # Start a session with the specified URL
+    session = agentql.start_session(URL)
 
     # Define the queries to interact with the page
     sign_in_query = """

@@ -2,10 +2,7 @@
 import time
 import agentql
 import os
-
-# Importing the default PlaywrightWebDriver from AgentQL library
-from agentql.sync_api.web import PlaywrightWebDriver
-from agentql.sync_api.session import Session
+import json
 
 # Set the URL to the desired website
 URL = "https://www.instagram.com"
@@ -15,11 +12,9 @@ URL_USER_ID = "#Insert your user_id for the website here"
 URL_PASSWORD = "#Insert your password for the website here"
 
 def get_user_session_state():
-    # Set headless to False to see the browser in action
-    driver = PlaywrightWebDriver(headless=False)
 
-    # Start a session with the specified URL and the custom driver
-    session = agentql.start_session(URL, web_driver=driver)
+    # Start a session with the specified URL
+    session = agentql.start_session(URL)
 
     # Define the queries to interact with the page (for login)
     QUERY = """
@@ -38,27 +33,32 @@ def get_user_session_state():
     # Wait for 5 seconds to ensure the user session state is saved entirely
     time.sleep(5)
 
-    # Save the user session state to a file
-    session.save_user_session_state("user_session_instagram.json")
+    user_session = session.get_user_auth_session()
 
+    # Save the user session state to a file
+    with open("user_session_instagram.json", "w", encoding="utf-8") as file:
+        file.write(json.dumps(user_session))
+        
     session.stop()
+
+    return user_session
 
 if __name__ == "__main__":
 
     if os.path.exists('user_session_instagram.json'):
-        user_session_state = Session.load_user_session_state("user_session_instagram.json")
+        with open('user_session_instagram.json', 'r', encoding="utf-8") as file:
+            content = file.read()
+            user_session = json.loads(content)
 
     else:
         get_user_session_state()
 
-        user_session_state = Session.load_user_session_state("user_session_instagram.json")
+        with open('user_session_instagram.json', 'r', encoding="utf-8") as file:
+            content = file.read()
+            user_session = json.loads(content)
     
-
-    # Start a new session with the user session state
-    driver = PlaywrightWebDriver(headless=False)
-
-    # Start a session with the specified URL and the custom driver and the user session state
-    session = agentql.start_session(URL, web_driver=driver, storage_state=user_session_state)
+    # Start a session with the specified URL 
+    session = agentql.start_session(URL, user_auth_session=user_session)
 
     # Wait for 5 seconds to see the browser in action
     time.sleep(5)

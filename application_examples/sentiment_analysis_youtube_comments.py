@@ -1,15 +1,14 @@
 from openai import OpenAI
 import agentql
-from agentql.sync_api.web import PlaywrightWebDriver
 
 URL = "https://www.youtube.com/watch?v=JfM1mr2bCuk"
 
 if __name__ == "__main__":
-    # Set headless to False to see the browser in action
-    driver = PlaywrightWebDriver(headless=False)
 
     # Start a session with the specified URL and the custom driver
-    session = agentql.start_session(URL, web_driver=driver)
+    session = agentql.start_session(URL)
+
+    driver = session.driver
 
     # (Note: The current script is configured to load about 100 comments on the video)
     for i in range(5):

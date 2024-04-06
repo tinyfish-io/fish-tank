@@ -1,4 +1,4 @@
-"""This example demonstrates how to work with default web driver configuration (headless) used by AgentQL."""
+"""This example demonstrates how to work with web driver configuration (headless) used by AgentQL."""
 import agentql
 
 # Set the URL to the desired website
@@ -32,5 +32,8 @@ if __name__ == "__main__":
     response = session.query(QUERY)
 
     print(response)
+
+    # Stop the session
+    session.stop()
 
 
