@@ -1,5 +1,6 @@
 """"This is an example of how to use AgentQL to track the cheapest flight price from Skyscanner website."""
 import agentql
+from agentql.sync_api import ScrollDirection
 
 # Set the URL to the desired website (Skyscanner in this case)
 URL = "https://www.skyscanner.co.in/"
@@ -105,7 +106,7 @@ if __name__ == "__main__":
     response_6 = session.query(QUERY_6)
 
     # Scroll the page to click on the apply button
-    session.driver.scroll_page(scroll_direction="DOWN")
+    session.driver.scroll_page(ScrollDirection.DOWN)
 
     response_6.apply_btn.click(force=True)
 
