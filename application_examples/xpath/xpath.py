@@ -1,6 +1,7 @@
 import agentql
 
 #import https://pypi.org/project/playwright-dompath/ 
+# Playwright Dompath is a Python library that helps you to generate XPath from Playwright selectors.
 from playwright_dompath.dompath_sync import xpath_path
 
 session = agentql.start_session("https://www.google.com")

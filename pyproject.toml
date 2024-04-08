@@ -7,9 +7,11 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
-agentql = "^0.3.0"
+python = "^3.9"
+agentql = "^0.4.0"
 openai = "^1.13.3"
+playwright-dompath = "^0.0.1"
+pandas = "^2.2.1"
 
 
 [build-system]
