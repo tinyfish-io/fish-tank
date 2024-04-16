@@ -75,7 +75,7 @@ if __name__ == "__main__":
         else:
             print("Let's wait for sale, current price is too high: ", response.product.to_data())
 
-    # We had a nested if-else based script, it is helpful to get visibility and debug based on the last executed quey and response
+    # We had a nested if-else based script, it is helpful to get visibility and debug based on the last executed query and response
     # We can use the last_query and last_response attributes to debug the queries and responses in the script
     print("This was the last query executed ", session.last_query)
 
