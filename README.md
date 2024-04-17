@@ -8,7 +8,7 @@
 2. **Install Webql in the virtual env**
    - Reference: [Webql Package](https://pypi.org/project/webql/)
 
-3. **Setup the `WEBQL_API_KEY` environment variable with your API Key**
+3. **Setup the `AGENTQL_API_KEY` environment variable with your API Key**
 
 4. **Navigate to the script (example) of your interest and use that code to test or build on top of it.**
 
