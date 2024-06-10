@@ -2,7 +2,7 @@
 import agentql
 
 # Importing the default PlaywrightWebDriver from AgentQL library
-from agentql.ext.playwright import PlaywrightWebDriverSync
+from agentql.ext.playwright.sync_api import PlaywrightWebDriver
 
 # Set the URL to the desired website
 URL = "https://www.google.com"
@@ -10,7 +10,7 @@ URL = "https://www.google.com"
 if __name__ == "__main__":
 
     # Set headless to True to hide the browser and run the script in the background
-    driver = PlaywrightWebDriverSync(headless=True)
+    driver = PlaywrightWebDriver(headless=True)
 
     # Start a session with the specified URL and the custom driver
     session = agentql.start_session(URL, web_driver=driver)

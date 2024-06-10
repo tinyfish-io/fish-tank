@@ -32,7 +32,7 @@ async def get_price_across_websites():
     {
         nintendo_switch
         {
-            price
+            price (Format the result in the following format: "$100.00")
         }
     }"""
 

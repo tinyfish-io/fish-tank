@@ -57,3 +57,5 @@ if __name__ == "__main__":
 
     # Wait for 5 seconds to see the browser in action
     time.sleep(5)
+
+    session.stop()
