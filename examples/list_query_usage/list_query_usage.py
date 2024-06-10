@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # Make API call(s) to AgentQL server to fetch the query
     response = session.query(QUERY)
 
-    socks_data = response.to_data()
+    response_data = response.to_data()
     
     #  Get the directory of the current script
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     # Write the data to a csv file
     with open(csv_file_path, "w") as file:
         file.write("Style Name, Price\n")
-        for sock in socks_data["socks"]:
+        for sock in response_data["socks"]:
             file.write(f"{sock['style_name']},{sock['price']}\n")
     
 
