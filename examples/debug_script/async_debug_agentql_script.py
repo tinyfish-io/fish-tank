@@ -1,3 +1,5 @@
+"""This example demonstrates how to use AgentQL's Debug Manager to debug the script in asynchronous environment."""
+
 import asyncio
 import logging
 
