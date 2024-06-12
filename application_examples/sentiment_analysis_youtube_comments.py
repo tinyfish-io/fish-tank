@@ -34,7 +34,7 @@ if __name__ == "__main__":
     response = session.query(QUERY)
 
     # Leveraging to_data() method to extract the comments data from the response
-    comments_data_json = response.comments.to_data()
+    response_data = response.to_data()
 
     # Stop the session
     session.stop()
@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
     USER_MESSAGE = "These are the comments on the video. I am trying to understand the sentiment of the comments."
 
-    for comment in comments_data_json:
+    for comment in response_data["comments"]:
         USER_MESSAGE += comment["comment_text"]
 
 

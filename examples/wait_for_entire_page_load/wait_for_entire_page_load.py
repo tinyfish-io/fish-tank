@@ -31,5 +31,5 @@ if __name__ == "__main__":
 
     # TODO: Add appropriate code for consumtpion of the comments data
     # Example: Levergae AgentQL's to_data() method to extract the content of comments and do sentiment analysis of the comments on the video
-    
+    print(response.to_data())
     session.stop()

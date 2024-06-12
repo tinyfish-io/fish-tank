@@ -24,6 +24,5 @@ print("XPath:", xpath_path(response.search_btn))
 response.search_box.fill("tinyfish")
 response.search_btn.click(force=True)
 
-
 session.stop()
 

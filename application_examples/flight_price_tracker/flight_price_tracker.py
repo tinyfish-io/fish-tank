@@ -79,13 +79,13 @@ if __name__ == "__main__":
 
     DATE_QUERY = """
     {
-        april_28_btn
+        random_available_date_btn
     }
     """
 
     response_date = session.query(DATE_QUERY)
 
-    response_date.april_28_btn.click(force=True)
+    response_date.random_available_date_btn.click(force=True)
 
     SEARCH_QUERY = """
     {

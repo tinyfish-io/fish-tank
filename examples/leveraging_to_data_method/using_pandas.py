@@ -5,12 +5,8 @@
 import agentql
 import json
 import pandas as pd
-import logging
-from agentql.sync_api.web import PlaywrightWebDriver
+from agentql.ext.playwright.sync_api import PlaywrightWebDriver
 
-
-logging.basicConfig(level=logging.DEBUG)
-log = logging.getLogger(__name__)
 
 URL = "https://www.nike.com/w/mens-shoes-nik1zy7ok"
 
@@ -28,7 +24,7 @@ QUERY = """
 }
 """
 response = session.query(QUERY)
-data = response.shoes.to_data()
+data = response.to_data()
 
 #Let's dump the data out to a json file for us to use.
 
