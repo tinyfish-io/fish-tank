@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE files
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Compiled Python files
+*.pyc
+
+# Logs and databases
+logs/
+*.log
+*.sqlite3
+
+# Miscellaneous
+*.swp
+.DS_Store
+
+# Poetry
+# poetry.lock
+
+tmp/
+
+*env.local
