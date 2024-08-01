@@ -8,7 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-agentql = "^0.4.0"
+agentql = "*"
 openai = "^1.13.3"
 playwright-dompath = "^0.0.1"
 pandas = "^2.2.1"
