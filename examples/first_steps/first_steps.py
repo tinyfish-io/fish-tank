@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-"""This is an example of how to collect pricing data from ecommerce website using AgentQL.
-"""
+"""This is an example of collecting pricing data from e-commerce website using AgentQL."""
 
 from playwright.sync_api import sync_playwright
 
@@ -54,7 +53,8 @@ def _extract_product_data(page: Page, search_key_word: str) -> dict:
             name
             price
         }
-    }"""
+    }
+    """
 
     # Extract data using AgentQL Data Query API
     data = page.query_data(query)
