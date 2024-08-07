@@ -13,21 +13,17 @@ URL = "https://scrapeme.live/shop"
 
 
 def main():
-    """Main function."""
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-        page: Page = browser.new_page()
-        page.goto(URL)
+        with playwright.chromium.launch(headless=False) as browser:
+            page: Page = browser.new_page()
+            page.goto(URL)
 
-        product_data = _extract_product_data(
-            page,
-            search_key_word="fish",
-        )
+            product_data = _extract_product_data(
+                page,
+                search_key_word="fish",
+            )
 
-        print(product_data)
-
-        # Stop the browser session
-        browser.close()
+            print(product_data)
 
 
 def _extract_product_data(page: Page, search_key_word: str) -> dict:
@@ -41,7 +37,6 @@ def _extract_product_data(page: Page, search_key_word: str) -> dict:
         dict: The product data extracted from the page.
     """
     # Find DOM element using AgentQL Smart Locator with natural language description
-    # API Doc: TODO add Smart Locator API Doc link
     search_input = page.get_by_prompt("the searchbox for products")
 
     # Interact with the element using Playwright API
@@ -62,7 +57,6 @@ def _extract_product_data(page: Page, search_key_word: str) -> dict:
     }"""
 
     # Extract data using AgentQL Data Query API
-    # API Doc: TODO add API Doc link
     data = page.query_data(query)
 
     return data
