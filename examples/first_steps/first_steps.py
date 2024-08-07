@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-"""This is an example of how to collect pricing data from ecommerce website using AgentQL.
-"""
+"""This is an example of collecting pricing data from e-commerce website using AgentQL."""
 
 from playwright.sync_api import sync_playwright
 
