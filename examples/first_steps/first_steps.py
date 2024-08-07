@@ -58,7 +58,8 @@ def _extract_product_data(page: Page, search_key_word: str) -> dict:
             name
             price
         }
-    }"""
+    }
+    """
 
     # Extract data using AgentQL Data Query API
     # API Doc: TODO add API Doc link
