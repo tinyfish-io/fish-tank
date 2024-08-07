@@ -1,4 +1,5 @@
 """This example demonstrates how to leverage to_data() method provided by AgentQL."""
+
 import agentql
 
 # Set the URL to the desired website

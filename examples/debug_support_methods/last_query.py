@@ -1,8 +1,9 @@
 """ This example demonstrates how to use the last_query and last_response attributes of the session object to debug the queries and responses. """
+
 import agentql
 
 # Set the URL to the desired website
-URL ="https://www.badmintonwarehouse.com/"
+URL = "https://www.badmintonwarehouse.com/"
 
 if __name__ == "__main__":
     # Start a session with the specified URL
@@ -18,10 +19,10 @@ if __name__ == "__main__":
 
     # Fetch the response of the query
     response = session.query(HOMEPAGE_QUERY)
-    
+
     response.search_box.fill("Mavis 350 Nylon Shuttlecock (Yellow/Fast)")
     response.search_btn.click(force=True)
-    
+
     CHOOSE_PRODUCT_QUERY = """
     {
         products[] 
@@ -71,7 +72,7 @@ if __name__ == "__main__":
             response = session.query(ADD_TO_CART_QUERY)
 
             response.add_to_cart_btn.click(force=True)
-        
+
         else:
             print("Let's wait for sale, current price is too high: ", response.product.to_data())
 
@@ -80,6 +81,3 @@ if __name__ == "__main__":
     print("This was the last query executed ", session.last_query)
 
     print("This was the last response received ", session.last_response)
-
-
-

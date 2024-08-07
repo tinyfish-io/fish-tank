@@ -1,8 +1,9 @@
 """This example demonstrates how to query a list of items on the page."""
 
 import os
-from playwright.sync_api import sync_playwright
+
 from agentql.ext.playwright.sync_api import Page
+from playwright.sync_api import sync_playwright
 
 # Set the URL to the desired website
 URL = "https://getyourfckingsocks.com/shop"

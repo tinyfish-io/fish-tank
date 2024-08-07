@@ -1,11 +1,12 @@
 """This example demonstrates how to wait for the page to load before querying the page and levergae scroll method."""
+
 import agentql
 
 # Yotube video URL to demonstrate the example for loading comments on the video
 URL = "https://www.youtube.com/watch?v=F6hmwkI3n64"
 
 if __name__ == "__main__":
-    
+
     # Start a session with the specified URL and the custom driver
     session = agentql.start_session(URL)
 

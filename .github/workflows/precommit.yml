@@ -1,0 +1,39 @@
+name: Pre-commit checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  pre-commit:
+    name: Pre-commit checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install Pylint
+        run: pip install pylint
+
+      - name: Lint check
+        run: pylint --disable=R,C application_examples examples
+
+      - name: Install Black formatter
+        run: pip install black
+
+      - name: Code style check
+        run: black . --check
+
+      - name: Imports sort check
+        uses: isort/isort-action@master
+
+      - name: Static check
+        uses: jakebailey/pyright-action@v2
+        continue-on-error: true
+        with:
+          pylance-version: latest-release
