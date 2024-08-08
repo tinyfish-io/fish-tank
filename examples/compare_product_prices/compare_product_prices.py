@@ -4,9 +4,7 @@ from agentql.ext.playwright.sync_api import Page
 from playwright.sync_api import sync_playwright
 
 # Set the URL to the desired website
-BESTBUY_URL = (
-    "https://www.bestbuy.com/site/nintendo-switch-oled-model-w-joy-con-white/6470923.p?skuId=6470923"
-)
+BESTBUY_URL = "https://www.bestbuy.com/site/nintendo-switch-oled-model-w-joy-con-white/6470923.p?skuId=6470923"
 TARGET_URL = "https://www.target.com/p/nintendo-switch-oled-model-with-white-joy-con/-/A-83887639#lnk=sametab"
 NINETENDO_URL = "https://www.nintendo.com/us/store/products/nintendo-switch-oled-model-white-set/"
 
@@ -29,6 +27,7 @@ def print_header():
 def print_row(website, product, price):
     """Prints the data row"""
     print(f"{website:<25} | {product:<20} | {price:<20} ")
+
 
 def main():
     print_header()
