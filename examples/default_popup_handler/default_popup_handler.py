@@ -1,14 +1,15 @@
 """This example demonstrates how to use the default popup handler to close all popups."""
-import time
-import agentql
 
+import time
+
+import agentql
 from agentql.sync_api import close_all_popups_handler
 
 # Set the URL to the desired website
 URL = "https://kinfield.com/"
 
 if __name__ == "__main__":
-    
+
     session = agentql.start_session(URL)
 
     # Define the queries to interact with the page

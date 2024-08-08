@@ -1,4 +1,5 @@
 """"This is an example of how to use AgentQL to track the cheapest flight price from Skyscanner website."""
+
 import agentql
 from agentql.sync_api import ScrollDirection
 
@@ -21,8 +22,8 @@ if __name__ == "__main__":
         webgl_vendor=VENDOR_INFO,
         webgl_renderer=RENDERER_INFO,
         nav_user_agent=USER_AGENT_INFO,
-        )
-    
+    )
+
     # Define the queries to interact with the page (You could tweak the queries as per item you want to track on the website)
     QUERY_1 = """
     {
@@ -72,7 +73,7 @@ if __name__ == "__main__":
         depart_date_picker
     }
     """
-    
+
     response_5 = session.query(QUERY_5)
 
     response_5.depart_date_picker.click(force=True)
@@ -127,6 +128,3 @@ if __name__ == "__main__":
 
     # Stop the session
     session.stop()
-
-
-    

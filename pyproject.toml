@@ -13,6 +13,20 @@ openai = "^1.13.3"
 playwright-dompath = "^0.0.1"
 pandas = "^2.2.1"
 
+[tool.poetry.group.dev.dependencies]
+black = "*"
+isort = "^5.13.2"
+pylint = "^3.1.0"
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+profile = "black"
+line_length = 100
+wrap_length = 100
+multi_line_output = 3
+include_trailing_comma = true
 
 [build-system]
 requires = ["poetry-core"]
