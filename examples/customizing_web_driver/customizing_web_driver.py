@@ -1,4 +1,5 @@
 """This example demonstrates how to customize the web driver used by AgentQL."""
+
 import agentql
 
 # Importing the default PlaywrightWebDriver from AgentQL library

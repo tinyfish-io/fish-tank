@@ -8,6 +8,7 @@ from agentql.sync_api import DebugManager
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 
+
 def debug_manager_showcase():
     # The following context manager will enable debug mode for the script.
     with DebugManager.debug_mode():
