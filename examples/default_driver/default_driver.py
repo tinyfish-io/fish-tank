@@ -1,4 +1,5 @@
 """This example demonstrates how to work with web driver configuration (headless) used by AgentQL."""
+
 import agentql
 
 # Set the URL to the desired website
@@ -11,7 +12,7 @@ if __name__ == "__main__":
         search_input
         search_btn
     }"""
-    
+
     # Start a session with the specified URL and the custom driver
     session = agentql.start_session(URL)
 
@@ -35,5 +36,3 @@ if __name__ == "__main__":
 
     # Stop the session
     session.stop()
-
-

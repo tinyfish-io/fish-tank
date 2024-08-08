@@ -1,4 +1,5 @@
 import time
+
 import agentql
 
 URL = "https://www.target.com"
@@ -39,7 +40,6 @@ if __name__ == "__main__":
     response_sign_in = session.query(sign_in_query)
 
     response_sign_in.sign_in_btn.click(force=True)
-
 
     response_credentials = session.query(credentials_query)
 
