@@ -1,36 +1,43 @@
-"""This example demonstrates how to wait for the page to load before querying the page and levergae scroll method."""
+"""This example demonstrates how to wait for the page to load completely before querying the page."""
 
-import agentql
+from agentql.ext.playwright.sync_api import Page
+from playwright.sync_api import sync_playwright
 
 # Yotube video URL to demonstrate the example for loading comments on the video
-URL = "https://www.youtube.com/watch?v=F6hmwkI3n64"
+URL = "https://duckduckgo.com/?q=machine+learning+lectures+mit&t=h_&iar=videos&iax=videos&ia=videos"
+
+QUERY = """
+{
+    videos(first 10 videos)[] {
+        video_title
+        length
+        views
+    }
+}
+"""
+
+
+def main():
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False)
+
+        # Create a new AgentQL page instance in the browser for web interactions
+        page: Page = browser.new_page()
+        page.goto(URL)
+
+        for _ in range(2):
+            # Wait for the page to load (helps to load the additional videos)
+            page.wait_for_page_ready_state()
+            # Scroll down the page to trigger loading of more videos
+            page.keyboard.press("End")
+
+        response = page.query_data(QUERY)
+
+        # Print the first video details
+        print(response["videos"][0])
+
+        browser.close()
+
 
 if __name__ == "__main__":
-
-    # Start a session with the specified URL and the custom driver
-    session = agentql.start_session(URL)
-
-    # (Note: The current script is configured to load about 100 comments on the video)
-    for i in range(5):
-        #  Each Scroll will load about 20 comments on the video
-        session.driver.scroll_to_bottom()
-
-        # Wait for the page to load (helps to load the comments on the video)
-        session.driver.wait_for_page_ready_state()
-
-    QUERY = """
-    {
-        comments[] {
-            comment_title
-            author
-            date
-        }
-    }
-    """
-
-    response = session.query(QUERY)
-
-    # TODO: Add appropriate code for consumtpion of the comments data
-    # Example: Levergae AgentQL's to_data() method to extract the content of comments and do sentiment analysis of the comments on the video
-    print(response.to_data())
-    session.stop()
+    main()
