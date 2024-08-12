@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+      "ms-python.black-formatter",
+      "GitHub.copilot",
+      "esbenp.prettier-vscode",
+      "ms-python.isort",
+      "ms-python.pylint"
+    ]
+}

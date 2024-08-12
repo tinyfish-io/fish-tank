@@ -1,0 +1,34 @@
+{
+    "[python]": {
+      "editor.defaultFormatter": "ms-python.black-formatter",
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+      }
+    },
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "editor.formatOnSave": true,
+    "files.insertFinalNewline": true,
+    "black-formatter.args": [
+      "--line-length=100"
+    ],
+    "isort.args": [
+      "--line-length=100",
+      "--wrap-length=100",
+      "--multi-line=3",
+      "--trailing-comma",
+      "--profile=black"
+    ],
+    "python.testing.pytestArgs": [
+      "agentqlserver/test"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "pylint.importStrategy": "fromEnvironment",
+    "pylint.args": [
+      "--rcfile=.pylintrc"
+    ],
+    "python.analysis.typeCheckingMode": "standard",
+    "editor.rulers": [100]
+  }
