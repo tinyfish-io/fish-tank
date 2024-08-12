@@ -11,28 +11,12 @@ NINETENDO_URL = "https://www.nintendo.com/us/store/products/nintendo-switch-oled
 # Define the queries to get the product price
 PRODUCT_INFO_QUERY = """
 {
-    nintendo_switch
-    {
-        price
-    }
+    nintendo_switch_price
 }
 """
 
 
-def print_header():
-    """Prints the header for the data table"""
-    print(f"{'Website':<25} | {'Product ':<20} | {'Price ':<20} ")
-    print("-" * 75)
-
-
-def print_row(website, product, price):
-    """Prints the data row"""
-    print(f"{website:<25} | {product:<20} | {price:<20} ")
-
-
 def main():
-    print_header()
-
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
 
@@ -44,21 +28,21 @@ def main():
         # Use query_data() method to fetch the price from the BestBuy page
         response = page.query_data(PRODUCT_INFO_QUERY)
 
-        print_row("BestBuy", "Nintendo Switch", response["nintendo_switch"]["price"])
+        print("Price at BestBuy: ", response["nintendo_switch_price"])
 
         page.goto(NINETENDO_URL)
 
         # Use query_data() method to fetch the price from the Nintendo page
         response = page.query_data(PRODUCT_INFO_QUERY)
 
-        print_row("Nintendo site", "Nintendo Switch", response["nintendo_switch"]["price"])
+        print("Price at Nintendo: ", response["nintendo_switch_price"])
 
         page.goto(TARGET_URL)
 
         # Use query_data() method to fetch the price from the Target page
         response = page.query_data(PRODUCT_INFO_QUERY)
 
-        print_row("Target", "Nintendo Switch", response["nintendo_switch"]["price"])
+        print("Price at Target: ", response["nintendo_switch_price"])
 
         browser.close()
 
