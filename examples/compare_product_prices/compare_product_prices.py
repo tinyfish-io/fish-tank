@@ -15,7 +15,8 @@ PRODUCT_INFO_QUERY = """
     {
         price
     }
-}"""
+}
+"""
 
 
 def print_header():
@@ -36,7 +37,7 @@ def main():
         browser = playwright.chromium.launch(headless=False)
 
         # Create a new AgentQL page instance in the browser for web interactions
-        page: Page = browser.new_page()
+        page: Page = browser.new_page()  # type: ignore
 
         page.goto(BESTBUY_URL)
 
@@ -48,7 +49,6 @@ def main():
         page.goto(NINETENDO_URL)
 
         # Use query_data() method to fetch the price from the Nintendo page
-
         response = page.query_data(PRODUCT_INFO_QUERY)
 
         print_row("Nintendo site", "Nintendo Switch", response["nintendo_switch"]["price"])
@@ -56,7 +56,6 @@ def main():
         page.goto(TARGET_URL)
 
         # Use query_data() method to fetch the price from the Target page
-
         response = page.query_data(PRODUCT_INFO_QUERY)
 
         print_row("Target", "Nintendo Switch", response["nintendo_switch"]["price"])
