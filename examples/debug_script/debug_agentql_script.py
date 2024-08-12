@@ -13,12 +13,12 @@ URL = "https://google.com"
 
 # Define the queries to interact with the page
 QUERY = """
-    {
-        search_box
-        search_btn
-        about_link
-    }
-    """
+{
+    search_box
+    search_btn
+    about_link
+}
+"""
 
 
 def main():
@@ -26,8 +26,8 @@ def main():
     with DebugManager.debug_mode(), sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
 
-        # Create a new AgentQL page instance in the browser for web interactions
-        page: Page = browser.new_page()
+        # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
+        page: Page = browser.new_page()  # type: ignore
 
         page.goto(URL)
 
