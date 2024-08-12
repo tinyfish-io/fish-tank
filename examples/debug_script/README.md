@@ -1,6 +1,6 @@
 # Example script: debugging scripts with AgentQL
 
-This example demonstrates how to debug AgentQL scripts in both synchronous and asynchronous environment.
+This example demonstrates how to debug AgentQL scripts in both synchronous and asynchronous environments.
 
 ## Run the script
 
