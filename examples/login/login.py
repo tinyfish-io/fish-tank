@@ -41,7 +41,7 @@ def main():
         # Use Playwright's API to click located button
         response.log_in_btn.click()
 
-        # Use query_elements() method to locate email, password input fields, and log in button in sign-in form
+        # Use query_elements() method to locate email, password input fields, and "Log In" button in sign-in form
         response_credentials = page.query_elements(CREDENTIALS_QUERY)
         # Fill the email and password input fields
         response_credentials.sign_in_form.email_input.fill(EMAIL)
