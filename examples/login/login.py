@@ -32,7 +32,7 @@ def main():
         browser = playwright.chromium.launch(headless=False)
 
         # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
-        page: Page = browser.new_page() #type: ignore
+        page: Page = browser.new_page()  # type: ignore
 
         page.goto(URL)
 
