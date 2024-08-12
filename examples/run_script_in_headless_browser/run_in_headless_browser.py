@@ -25,20 +25,19 @@ def main():
         # Launch the browser in headless mode
         browser = playwright.chromium.launch(headless=True)
 
-        # Create a new AgentQL page instance in the browser for web interactions
-        page: Page = browser.new_page()
+        # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
+        page: Page = browser.new_page()  # type: ignore
 
         page.goto(URL)
 
-        # Use query_elements() method to fetch the search box and button from the page
-
+        # Use query_elements() method to locate the search box and search button from the page
         response = page.query_elements(QUERY)
 
+        # Use Playwright's API to fill the search box and click the search button
         response.search_input.fill("President of United States")
-
         response.search_btn.click(force=True)
 
-        # Use query_data() method to fetch the URLs from the page
+        # Use query_data() method to fetch the president name from the page
         response = page.query_data(QUERY_2)
 
         print(response)
