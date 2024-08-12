@@ -16,7 +16,7 @@
       }
     },
     {
-      "name": "Python Debugger: Python File",
+      "name": "Python: Debug Current File",
       "type": "debugpy",
       "request": "launch",
       "program": "${file}",
