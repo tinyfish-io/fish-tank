@@ -1,15 +1,18 @@
 """"This example demonstrates how to save and load the user session state using AgentQL."""
-import time
-import agentql
-import os
+
 import json
+import os
+import time
+
+import agentql
 
 # Set the URL to the desired website
 URL = "https://www.instagram.com"
 
 # Set the user_id and password for the website
-URL_USER_ID = "#Insert your user_id for the website here" 
+URL_USER_ID = "#Insert your user_id for the website here"
 URL_PASSWORD = "#Insert your password for the website here"
+
 
 def get_user_session_state():
 
@@ -38,28 +41,28 @@ def get_user_session_state():
     # Save the user session state to a file
     with open("user_session_instagram.json", "w", encoding="utf-8") as file:
         file.write(json.dumps(user_session))
-        
+
     session.stop()
 
     return user_session
 
+
 if __name__ == "__main__":
 
-    if os.path.exists('user_session_instagram.json'):
-        with open('user_session_instagram.json', 'r', encoding="utf-8") as file:
+    if os.path.exists("user_session_instagram.json"):
+        with open("user_session_instagram.json", "r", encoding="utf-8") as file:
             content = file.read()
             user_session = json.loads(content)
 
     else:
         get_user_session_state()
 
-        with open('user_session_instagram.json', 'r', encoding="utf-8") as file:
+        with open("user_session_instagram.json", "r", encoding="utf-8") as file:
             content = file.read()
             user_session = json.loads(content)
-    
-    # Start a session with the specified URL 
+
+    # Start a session with the specified URL
     session = agentql.start_session(URL, user_auth_session=user_session)
 
     # Wait for 5 seconds to see the browser in action
     time.sleep(5)
-

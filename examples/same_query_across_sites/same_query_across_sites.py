@@ -1,8 +1,11 @@
 """This example demonstrates how to levergae to_data() method provided by AgentQL."""
+
 import agentql
 
 # Set the URL to the desired website
-WALMART_URL = "https://www.walmart.com/ip/Nintendo-Switch-OLED-Model-w-White-Joy-Con/910582148?athbdg=L1600"
+WALMART_URL = (
+    "https://www.walmart.com/ip/Nintendo-Switch-OLED-Model-w-White-Joy-Con/910582148?athbdg=L1600"
+)
 TARGET_URL = "https://www.target.com/p/nintendo-switch-oled-model-with-white-joy-con/-/A-83887639#lnk=sametab"
 NINETENDO_URL = "https://www.nintendo.com/us/store/products/nintendo-switch-oled-model-white-set/"
 
@@ -12,9 +15,11 @@ def print_header():
     print(f"{'Website':<25} | {'Product ':<20} | {'Price ':<20} ")
     print("-" * 75)
 
+
 def print_row(website, product, price):
     """Prints the data row"""
     print(f"{website:<25} | {product:<20} | {price:<20} ")
+
 
 if __name__ == "__main__":
 

@@ -4,8 +4,9 @@
 """
 
 import asyncio
-from playwright.async_api import async_playwright
+
 from agentql.ext.playwright.async_api import Page
+from playwright.async_api import async_playwright
 
 # URL of the ecommerce website
 # You can replace it with any other ecommerce website but the queries should be updated accordingly
@@ -106,9 +107,7 @@ async def extract_pricing_data(
 ) -> list:
     """Extract pricing data for a product within a price range."""
     # Search for the product with the specified price range
-    print(
-        f"Searching for product: {product} with price range: ${min_price} - ${max_price}"
-    )
+    print(f"Searching for product: {product} with price range: ${min_price} - ${max_price}")
     await _search_product(page, product, min_price, max_price)
 
     current_page = 1
