@@ -4,18 +4,17 @@ from agentql.ext.playwright.sync_api import Page
 from playwright.sync_api import sync_playwright
 
 # Set the URL to the desired website
-URL = "https://google.com"
+URL = "https://scrapeme.live/shop"
 
 QUERY = """
 {
-    search_input
-    search_btn
+    search_products_box
 }
 """
 
 QUERY_2 = """
 {
-    president_name
+    number_in_stock
 }
 """
 
@@ -23,7 +22,7 @@ QUERY_2 = """
 def main():
     with sync_playwright() as playwright:
         # Launch the browser in headless mode
-        browser = playwright.chromium.launch(headless=True)
+        browser = playwright.chromium.launch(headless=False)
 
         # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
         page: Page = browser.new_page()  # type: ignore
@@ -33,9 +32,9 @@ def main():
         # Use query_elements() method to locate the search box and search button from the page
         response = page.query_elements(QUERY)
 
-        # Use Playwright's API to fill the search box and click the search button
-        response.search_input.fill("President of United States")
-        response.search_btn.click(force=True)
+        # Use Playwright's API to fill the search box and press Enter
+        response.search_products_box.type("Charmander")
+        page.keyboard.press("Enter")
 
         # Use query_data() method to fetch the president name from the page
         response = page.query_data(QUERY_2)
