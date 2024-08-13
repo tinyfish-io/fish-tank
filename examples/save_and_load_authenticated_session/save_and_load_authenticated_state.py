@@ -50,7 +50,7 @@ def save_signed_in_state():
 
         page.wait_for_page_ready_state()
 
-        # Save the signed-in session
+        # Save the signed-in state
         browser.contexts[0].storage_state(path="yelp_login.json")
 
         browser.close()
@@ -60,7 +60,7 @@ def load_signed_in_state():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
 
-        # Load the saved signed-in session by creating a new browser context with the saved storage state
+        # Load the saved signed-in session by creating a new browser context with the saved signed-in state
         context = browser.new_context(storage_state="yelp_login.json")
 
         # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
