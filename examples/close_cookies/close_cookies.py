@@ -6,7 +6,7 @@ from agentql.ext.playwright.sync_api import Page
 from playwright.sync_api import sync_playwright
 
 # Set the URL to the desired website
-URL = "https://www.amazon.com/"
+URL = "https://gov.uk/"
 
 QUERY = """
 {
