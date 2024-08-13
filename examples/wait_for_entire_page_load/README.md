@@ -11,6 +11,6 @@ This example demonstrates how to wait for the page to load completely before que
 python3 wait_for_entire_page_load.py
 ```
 
-## Play with it
+## Play with the query
 
 Install the [AgentQL Chrome DevTools extension](https://docs.agentql.com/docs/installation/chrome-extension-installation/) to play with the AgentQL query. [Learn more about the AgentQL query language](https://docs.agentql.com/docs/agentql-query/query-intro)
