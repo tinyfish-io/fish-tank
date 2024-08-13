@@ -22,7 +22,7 @@ QUERY_2 = """
 def main():
     with sync_playwright() as playwright:
         # Launch the browser in headless mode
-        browser = playwright.chromium.launch(headless=False)
+        browser = playwright.chromium.launch(headless=True)
 
         # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
         page: Page = browser.new_page()  # type: ignore
