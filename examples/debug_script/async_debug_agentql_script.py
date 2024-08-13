@@ -33,7 +33,7 @@ async def main():
         response = await page.query_elements(QUERY)
 
         # Buggy code that will crash the script. When it crashes, the debug manager will save debug files to designated directory (~/.agentql/debug by default).
-        await response.search.fill("ivysaur") # type: ignore
+        await response.search.fill("ivysaur")  # type: ignore
         await page.keyboard.press("Enter")
 
         await browser.close()
