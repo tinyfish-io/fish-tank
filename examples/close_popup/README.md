@@ -11,6 +11,6 @@ This example demonstrates how to close popup windows (like promotion form) with 
 python3 close_popup.py
 ```
 
-## Play with it
+## Play with the query
 
 Install the [AgentQL Chrome DevTools extension](https://docs.agentql.com/docs/installation/chrome-extension-installation/) to play with the AgentQL query. [Learn more about the AgentQL query language](https://docs.agentql.com/docs/agentql-query/query-intro)
