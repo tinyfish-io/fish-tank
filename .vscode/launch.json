@@ -5,8 +5,8 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: Run Current File",
-      "type": "python",
+      "name": "Python: Run/Debug Current File",
+      "type": "debugpy",
       "request": "launch",
       "program": "${file}",
       "console": "integratedTerminal",
@@ -14,15 +14,6 @@
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
       }
-    },
-    {
-      "name": "Python: Debug Current File",
-      "type": "debugpy",
-      "request": "launch",
-      "program": "${file}",
-      "env": {
-        "PYTHONPATH": "${workspaceFolder}"
-      }
-    },
+    }
   ]
 }
