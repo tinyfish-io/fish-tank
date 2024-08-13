@@ -32,7 +32,7 @@ def main():
         response = page.query_elements(QUERY)
 
         # Buggy code that will crash the script. When it crashes, the debug manager will save debug files to designated directory (~/.agentql/debug by default).
-        response.search.fill("ivysaur")
+        response.search.fill("ivysaur") # type: ignore
         page.keyboard.press("Enter")
 
         browser.close()
