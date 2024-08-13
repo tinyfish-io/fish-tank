@@ -47,7 +47,7 @@ async def get_price_across_websites():
         f"""
     Price at BestBuy: ${bestbuy_price}
     Price at Ninetendo: ${nintendo_price}
-    Pirce at Target: ${target_price}
+    Price at Target: ${target_price}
     """
     )
 
