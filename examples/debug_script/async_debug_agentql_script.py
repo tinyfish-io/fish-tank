@@ -10,14 +10,12 @@ from playwright.async_api import async_playwright
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 
-URL = "https://google.com"
+URL = "https://scrapeme.live/shop/"
 
 # Define the queries to interact with the page
 QUERY = """
 {
-    search_box
-    search_btn
-    about_link
+    search_products_box
 }
 """
 
@@ -35,8 +33,8 @@ async def main():
         response = await page.query_elements(QUERY)
 
         # Buggy code that will crash the script. When it crashes, the debug manager will save debug files to designated directory (~/.agentql/debug by default).
-        await response.search.fill("tinyfish")
-        await response.search_btn.click(force=True)
+        await response.search.fill("ivysaur")
+        await page.keyboard.press("Enter")
 
         await browser.close()
 
