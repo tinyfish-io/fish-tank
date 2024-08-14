@@ -2,6 +2,8 @@
 
 """This is an example of collecting pricing data from e-commerce website using AgentQL."""
 
+import time
+
 # Import the Page class from the AgentQL Playwright extension
 # This enables the use of the AgentQL Smart Locator and Data Query API
 from agentql.ext.playwright.sync_api import Page
@@ -32,6 +34,9 @@ PRODUCT_DATA_QUERY = """
 }
 """
 
+# Other than the AgentQL query, you can also use natural language prompt to locate the element
+NATURAL_LANGUAGE_PROMPT = "Button to display Qwilfish page"
+
 
 def main():
     with sync_playwright() as playwright:
@@ -48,10 +53,12 @@ def main():
             search_key_word="fish",
         )
 
-        # Close the browser to free up resources
-        browser.close()
+        _add_qwilfish_to_cart(page)
 
         print(product_data)
+
+        # Close the browser to free up resources
+        browser.close()
 
 
 def _extract_product_data(page: Page, search_key_word: str) -> dict:
@@ -76,6 +83,24 @@ def _extract_product_data(page: Page, search_key_word: str) -> dict:
     data = page.query_data(PRODUCT_DATA_QUERY)
 
     return data
+
+
+def _add_qwilfish_to_cart(page: Page):
+    """Add Qwilfish to cart with AgentQL Smart Locator API.
+
+    Args:
+        page (Page): The Playwright page object to interact with the browser.
+    """
+    # Find DOM element using AgentQL Smart Locator API
+    qwilfish_page_btn = page.get_by_prompt(NATURAL_LANGUAGE_PROMPT)
+
+    # Interact with the element using Playwright API
+    # API Doc: https://playwright.dev/python/docs/api/class-locator#locator-click
+    if qwilfish_page_btn:
+        qwilfish_page_btn.click()
+
+    # Wait for 3 seconds to see the browser action
+    time.sleep(5)
 
 
 if __name__ == "__main__":
