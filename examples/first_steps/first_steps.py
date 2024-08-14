@@ -2,11 +2,13 @@
 
 """This is an example of collecting pricing data from e-commerce website using AgentQL."""
 
-from playwright.sync_api import sync_playwright
-
 # Import the Page class from the AgentQL Playwright extension
 # This enables the use of the AgentQL Smart Locator and Data Query API
 from agentql.ext.playwright.sync_api import Page
+
+# Import the synchronous playwright library
+# This library is used to launch the browser and interact with the web page
+from playwright.sync_api import sync_playwright
 
 URL = "https://scrapeme.live/shop"
 
