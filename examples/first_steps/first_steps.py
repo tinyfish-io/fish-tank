@@ -10,19 +10,46 @@ from agentql.ext.playwright.sync_api import Page
 
 URL = "https://scrapeme.live/shop"
 
+# The AgentQL query to locate the search box element
+# More about AgentQL Query: https://docs.agentql.ai/agentql-query/query-intro
+SEARCH_BOX_QUERY = """
+{
+    search_product_box
+}
+"""
+
+# The AgentQL query of the data to be extracted
+# More about AgentQL Query: https://docs.agentql.ai/agentql-query/query-intro
+PRODUCT_DATA_QUERY = """
+{
+    price_currency
+    products[] {
+        name
+        price
+    }
+}
+"""
+
 
 def main():
     with sync_playwright() as playwright:
-        with playwright.chromium.launch(headless=False) as browser:
-            page: Page = browser.new_page()
-            page.goto(URL)
+        # Launch the Playwright browser
+        browser = playwright.chromium.launch(headless=False)
 
-            product_data = _extract_product_data(
-                page,
-                search_key_word="fish",
-            )
+        # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
+        page: Page = browser.new_page()  # type: ignore
 
-            print(product_data)
+        page.goto(URL)
+
+        product_data = _extract_product_data(
+            page,
+            search_key_word="fish",
+        )
+
+        # Close the browser to free up resources
+        browser.close()
+
+        print(product_data)
 
 
 def _extract_product_data(page: Page, search_key_word: str) -> dict:
@@ -35,29 +62,16 @@ def _extract_product_data(page: Page, search_key_word: str) -> dict:
     Returns:
         dict: The product data extracted from the page.
     """
-    # Find DOM element using AgentQL Smart Locator with natural language description
-    search_input = page.get_by_prompt("the searchbox for products")
+    # Find DOM element using AgentQL Elements Query API
+    response = page.query_elements(SEARCH_BOX_QUERY)
 
     # Interact with the element using Playwright API
     # API Doc: https://playwright.dev/python/docs/input#text-input
-    search_input.type(search_key_word, delay=200)
-    search_input.press("Enter")
-
-    # The AgentQL query of the data to be extracted
-    # More about AgentQL Query: TODO (Update link)
-    # https://agentql-docs.vercel.app/agentql-query/query-intro
-    query = """
-    {
-        price_currency
-        products[] {
-            name
-            price
-        }
-    }
-    """
+    response.search_product_box.type(search_key_word, delay=200)
+    page.keyboard.press("Enter")
 
     # Extract data using AgentQL Data Query API
-    data = page.query_data(query)
+    data = page.query_data(PRODUCT_DATA_QUERY)
 
     return data
 
