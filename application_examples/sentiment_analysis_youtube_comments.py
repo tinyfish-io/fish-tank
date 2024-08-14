@@ -1,5 +1,5 @@
-from openai import OpenAI
 import agentql
+from openai import OpenAI
 
 URL = "https://www.youtube.com/watch?v=JfM1mr2bCuk"
 
@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
         # Wait for the page to load (helps to load the comments on the video)
         driver.wait_for_page_ready_state()
-    
+
     # Define the queries to interact with the page
     QUERY = """
     {
@@ -47,23 +47,20 @@ if __name__ == "__main__":
     for comment in response_data["comments"]:
         USER_MESSAGE += comment["comment_text"]
 
-
     SYSTEM_MESSAGE = """You are an expert in understanding the social media analytics and analysis and specialize in analyzing sentiment of the comments. 
     Please find the comments on the video as follows:
     
     """
-    
+
     USER_MESSAGE += "Could you please provide a summary of the comments on the video. Additionaly, just give only 3 takeaways which would be important for me as the creator of the video."
 
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            { "role": "system", "content": SYSTEM_MESSAGE },
-            { "role": "user", "content": USER_MESSAGE },
-        ]
+            {"role": "system", "content": SYSTEM_MESSAGE},
+            {"role": "user", "content": USER_MESSAGE},
+        ],
     )
 
     # Print the response from the GPT-3.5 model (Sentiment Analysis of the comments on the video)
     print(completion.choices[0].message.content)
-
-    

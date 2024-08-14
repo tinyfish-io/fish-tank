@@ -1,17 +1,18 @@
-"""This example demonstrates how to get XPath of an element that was fetched with AgentQL."""
+"""This example demonstrates how to close popup windows (like promotion form) with AgentQL."""
+
+import time
 
 from agentql.ext.playwright.sync_api import Page
 from playwright.sync_api import sync_playwright
 
-# import https://pypi.org/project/playwright-dompath/
-# Playwright Dompath is a Python library that helps you to generate XPath from Playwright selectors.
-from playwright_dompath.dompath_sync import xpath_path
-
-URL = "https://scrapeme.live/shop/"
+# Set the URL to the desired website
+URL = "https://kinfield.com/"
 
 QUERY = """
 {
-    search_products_box
+    popup_form {
+        close_btn
+    }
 }
 """
 
@@ -25,11 +26,14 @@ def main():
 
         page.goto(URL)
 
-        # Use query_elements() method to fetch the search box from the page
+        # Use query_elements() method to fetch the close popup button from the page
         response = page.query_elements(QUERY)
 
-        # Get the XPath
-        print("XPath:", xpath_path(response.search_products_box))
+        # Click the close button to close the popup
+        response.popup_form.close_btn.click()
+
+        # Wait for 5 seconds to see the browser in action
+        time.sleep(5)
 
         browser.close()
 
