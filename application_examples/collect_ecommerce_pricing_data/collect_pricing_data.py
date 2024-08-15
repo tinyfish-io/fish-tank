@@ -41,7 +41,7 @@ async def _search_product(
     product: str,
     min_price: int,
     max_price: int,
-):
+) -> bool:
     """Search for a product with a price range.
 
     Args:
@@ -49,19 +49,33 @@ async def _search_product(
         product (str): The product name to search for.
         min_price (int): The minimum price of the product.
         max_price (int): The maximum price of the product.
+
+    Returns:
+        bool: True if the search is successful, False otherwise.
     """
 
     # Search for a product
     search_input = await page.get_by_prompt("the search input field")
+    if not search_input:
+        print("Search input field not found.")
+        return False
     await search_input.type(product, delay=200)
     await search_input.press("Enter")
 
     # Define price range
     min_price_input = await page.get_by_prompt("the min price input field")
+    if not min_price_input:
+        print("Min price input field not found.")
+        return False
     await min_price_input.fill(str(min_price))
+
     max_price_input = await page.get_by_prompt("the max price input field")
+    if not max_price_input:
+        print("Max price input field not found.")
+        return False
     await max_price_input.fill(str(max_price))
     await max_price_input.press("Enter")
+    return True
 
 
 async def _go_to_the_next_page(page: Page) -> bool:
@@ -107,7 +121,9 @@ async def extract_pricing_data(
     """Extract pricing data for a product within a price range."""
     # Search for the product with the specified price range
     print(f"Searching for product: {product} with price range: ${min_price} - ${max_price}")
-    await _search_product(page, product, min_price, max_price)
+    if await _search_product(page, product, min_price, max_price) is False:
+        print("Failed to search for the product.")
+        return []
 
     current_page = 1
     pricing_data = []
