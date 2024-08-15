@@ -1,0 +1,36 @@
+# Example script: run the script in existing local browser with AgentQL
+
+This example demonstrates how to run the script in an existing local browser with AgentQL.
+
+## Run the script
+
+- [Install AgentQL SDK](https://docs.agentql.com/docs/installation/sdk-installation)
+- Save this python file locally as **run_script_with_local_browser.py**
+- Close your Google Chrome browser application if it is open.
+- If you're using **Mac**, open the terminal and run the following command:
+
+```bash
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+```
+
+- If you're using **Windows**, open the Command Prompt and run the command:
+
+```bash
+chrome.exe --remote-debugging-port=9222
+```
+
+**Make sure to replace chrome.exe with the path to your Chrome executable if it's not already in your system's PATH.**
+
+- In `run_script_with_local_browser.py`, replace variable `WEBSOCKET_URL`'s placeholder value with the actual WebSocket URL returned in terminal or command prompt. The URL should be in the format of `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`.
+
+- Run the following command from the project's folder:
+
+```bash
+python3 run_script_with_local_browser.py
+```
+
+- If you want to work with open pages, navigate to the website within the browser, and use `fetch_data_from_open_website_page()` method in the script to fetch data from the page.
+
+## Play with the query
+
+Install the [AgentQL Chrome DevTools extension](https://docs.agentql.com/docs/installation/chrome-extension-installation/) to play with the AgentQL query. [Learn more about the AgentQL query language](https://docs.agentql.com/docs/agentql-query/query-intro)
