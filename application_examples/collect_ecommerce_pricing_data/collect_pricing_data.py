@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-"""This is an example of how to collect pricing data from ecommerce website using AgentQL.
-"""
+"""This is an example of how to collect pricing data from e-commerce website using AgentQL."""
 
 import asyncio
 
@@ -134,7 +133,7 @@ async def main():
     """Main function."""
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(headless=False)
-        page: Page = await browser.new_page()
+        page: Page = await browser.new_page()  # type: ignore
         await page.goto(URL)  # open the target URL
 
         pricing_data = await extract_pricing_data(
