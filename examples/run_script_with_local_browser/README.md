@@ -21,6 +21,7 @@ chrome.exe --remote-debugging-port=9222
 
 **Make sure to replace chrome.exe with the path to your Chrome executable if it's not already in your system's PATH.**
 
+- In the open browser, select the Google profile you would like to use for this session.
 - In `run_script_with_local_browser.py`, replace variable `WEBSOCKET_URL`'s placeholder value with the actual WebSocket URL returned in terminal or command prompt. The URL should be in the format of `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`.
 
 - Run the following command from the project's folder:
