@@ -22,7 +22,7 @@ def main():
         browser = playwright.chromium.launch(headless=False)
 
         # Create a new AgentQL page instance in the browser for web interactions
-        page: Page = browser.new_page()
+        page: Page = browser.new_page()  # type: ignore
 
         page.goto(URL)
 
