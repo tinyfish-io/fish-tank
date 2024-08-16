@@ -43,7 +43,7 @@ def main():
         # Launch the Playwright browser
         browser = playwright.chromium.launch(headless=False)
 
-        # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
+        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
         page: Page = browser.new_page()  # type: ignore
 
         page.goto(URL)
@@ -71,7 +71,7 @@ def _extract_product_data(page: Page, search_key_word: str) -> dict:
     Returns:
         dict: The product data extracted from the page.
     """
-    # Find DOM element using AgentQL Elements Query API
+    # Find DOM element using AgentQL API's query_elements() method
     response = page.query_elements(SEARCH_BOX_QUERY)
 
     # Interact with the element using Playwright API
@@ -79,7 +79,7 @@ def _extract_product_data(page: Page, search_key_word: str) -> dict:
     response.search_product_box.type(search_key_word, delay=200)
     page.keyboard.press("Enter")
 
-    # Extract data using AgentQL Data Query API
+    # Extract data using AgentQL API's query_data() method
     data = page.query_data(PRODUCT_DATA_QUERY)
 
     return data
@@ -91,7 +91,7 @@ def _add_qwilfish_to_cart(page: Page):
     Args:
         page (Page): The Playwright page object to interact with the browser.
     """
-    # Find DOM element using AgentQL Smart Locator API
+    # Find DOM element using AgentQL API's get_by_prompt() method
     qwilfish_page_btn = page.get_by_prompt(NATURAL_LANGUAGE_PROMPT)
 
     # Interact with the element using Playwright API
