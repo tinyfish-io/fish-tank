@@ -21,7 +21,7 @@ def main():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
 
-        # Create a new AgentQL page instance in the browser for web interactions
+        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
         page: Page = browser.new_page()  # type: ignore
 
         page.goto(URL)
