@@ -30,7 +30,7 @@ def main():
         response = page.query_elements(QUERY)
 
         # Check if there is a cookie-rejection button on the page
-        if response.cookies_form.reject_btn != None:
+        if response.cookies_form.reject_btn is not None:
 
             # If so, click the close button to reject cookies
             response.cookies_form.reject_btn.click()
