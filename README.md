@@ -2,7 +2,7 @@
 
 ## Get started with AgentQL
 
-You will need your [API Key](https://dev.agentql.com/) and the [AgentQL SDK](https://docs.agentql.ai/installation/sdk-installation). You can get set up in less than five minutes with the [AgentQL Quick Start](https://docs.agentql.com/quick-start).
+You will need your [API Key](https://dev.agentql.com/) and the [AgentQL SDK](https://docs.agentql.com/installation/sdk-installation). You can get set up in less than five minutes with the [AgentQL Quick Start](https://docs.agentql.com/quick-start).
 
 You may want to [set up a python virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/) before you begin. Then you can [install Agentql in the virtual env](https://pypi.org/project/agentql/).
 
