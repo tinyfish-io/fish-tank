@@ -15,7 +15,7 @@ from playwright.sync_api import sync_playwright
 URL = "https://scrapeme.live/shop"
 
 # The AgentQL query to locate the search box element
-# More about AgentQL Query: https://docs.agentql.ai/agentql-query/query-intro
+# More about AgentQL Query: https://docs.agentql.com/agentql-query/query-intro
 SEARCH_BOX_QUERY = """
 {
     search_product_box
@@ -23,7 +23,7 @@ SEARCH_BOX_QUERY = """
 """
 
 # The AgentQL query of the data to be extracted
-# More about AgentQL Query: https://docs.agentql.ai/agentql-query/query-intro
+# More about AgentQL Query: https://docs.agentql.com/agentql-query/query-intro
 PRODUCT_DATA_QUERY = """
 {
     price_currency
