@@ -17,9 +17,7 @@ QUERY = """
 
 
 def main():
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-
+    with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
         # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
         page: Page = browser.new_page()  # type: ignore
 
@@ -30,8 +28,6 @@ def main():
 
         # Get the XPath
         print("XPath:", xpath_path(response.search_products_box))
-
-        browser.close()
 
 
 if __name__ == "__main__":

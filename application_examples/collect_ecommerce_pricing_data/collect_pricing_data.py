@@ -147,8 +147,9 @@ async def extract_pricing_data(
 
 async def main():
     """Main function."""
-    async with async_playwright() as playwright:
-        browser = await playwright.chromium.launch(headless=False)
+    async with async_playwright() as playwright, await playwright.chromium.launch(
+        headless=False
+    ) as browser:
         page: Page = await browser.new_page()  # type: ignore
         await page.goto(URL)  # open the target URL
 
@@ -160,9 +161,6 @@ async def main():
         )
 
         print(pricing_data)
-
-        # Stop the browser session
-        await browser.close()
 
 
 if __name__ == "__main__":

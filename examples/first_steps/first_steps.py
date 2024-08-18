@@ -39,10 +39,7 @@ NATURAL_LANGUAGE_PROMPT = "Button to display Qwilfish page"
 
 
 def main():
-    with sync_playwright() as playwright:
-        # Launch the Playwright browser
-        browser = playwright.chromium.launch(headless=False)
-
+    with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
         # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
         page: Page = browser.new_page()  # type: ignore
 
@@ -53,12 +50,9 @@ def main():
             search_key_word="fish",
         )
 
-        _add_qwilfish_to_cart(page)
-
         print(product_data)
 
-        # Close the browser to free up resources
-        browser.close()
+        _add_qwilfish_to_cart(page)
 
 
 def _extract_product_data(page: Page, search_key_word: str) -> dict:
@@ -99,8 +93,8 @@ def _add_qwilfish_to_cart(page: Page):
     if qwilfish_page_btn:
         qwilfish_page_btn.click()
 
-    # Wait for 3 seconds to see the browser action
-    time.sleep(5)
+    # Wait for 10 seconds to see the browser action
+    time.sleep(10)
 
 
 if __name__ == "__main__":
