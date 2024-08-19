@@ -1,19 +1,12 @@
-# A repository to house AgentQL Examples and tutorials
+# AgentQL examples and tutorials
 
-### Steps to Get Started with AgentQL:
+## Get started with AgentQL
 
-1. **Setup your python virtual environment**
-   - Reference: [Installing Using pip and Virtual Environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
+You will need your [API Key](https://dev.agentql.com/) and the [AgentQL SDK](https://docs.agentql.com/installation/sdk-installation). You can get set up in less than five minutes with the [AgentQL Quick Start](https://docs.agentql.com/quick-start).
 
-2. **Install Agentql in the virtual env**
-   - Reference: [Agentql Package](https://pypi.org/project/agentql/)
+You may want to [set up a python virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/) before you begin. Then you can [install Agentql in the virtual env](https://pypi.org/project/agentql/).
 
-3. **Setup the `AGENTQL_API_KEY` environment variable with your API Key**
-   - Reference: [Setup Guide](https://docs.agentql.com/docs/installation/sdk-installation)
-
-4. **Navigate to the script (example) of your interest and use that code to test or build on top of it.**
-
-5. **Run the script and experience AgentQL's amazing capabilities.**
+## Scripts in this repo
 
 | Topic                  | Example Name                | URL      |
 | ---------------------- | --------------------------- | -------- |
