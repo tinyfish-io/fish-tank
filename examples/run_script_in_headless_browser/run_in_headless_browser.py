@@ -29,14 +29,14 @@ def main():
 
         page.goto(URL)
 
-        # Use query_elements() method to locate the search box and search button from the page
+        # Use query_elements() method to locate the search product box from the page
         response = page.query_elements(SEARCH_QUERY)
 
         # Use Playwright's API to fill the search box and press Enter
         response.search_products_box.type("Charmander")
         page.keyboard.press("Enter")
 
-        # Use query_data() method to fetch the president name from the page
+        # Use query_data() method to fetch the stock number from the page
         response = page.query_data(STOCK_NUMBER_QUERY)
 
         print(response)
