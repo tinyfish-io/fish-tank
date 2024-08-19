@@ -6,17 +6,30 @@ You will need your [API Key](https://dev.agentql.com/) and the [AgentQL SDK](htt
 
 You may want to [set up a python virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/) before you begin. Then you can [install Agentql in the virtual env](https://pypi.org/project/agentql/).
 
-## Scripts in this repo
+## Examples
 
-| Topic                  | Example Name                | URL      |
-| ---------------------- | --------------------------- | -------- |
-| Customizing Web Driver | customizing_web_driver.py   | [customizing_web_driver.py](https://github.com/tinyfish-io/fish-tank/tree/main/examples/customizing_web_driver/customizing_web_driver.py)       |
-| Login to a website     | login.py                    | [login.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/login/login.py)       |
-| Leveraging Async capabilities     | async_example.py                    | [async_example.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/async_example/async_example.py)       |
-| Headless browser usage     | headless_browser.py                    | [headless_browser.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/headless_browser/headless_browser.py)       |
-| to_data() method for working with data     | levaraging_to_data_method.py                    | [levaraging_to_data_method.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/leveraging_to_data_method/levaraging_to_data_method.py)       |
-| Generalized query across sites     | same_query_across_sites.py                    | [same_query_across_sites.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/same_query_across_sites/same_query_across_sites.py)       |
-| Save and reuse logged in state     | save_and_load_context.py                    | [save_and_load_context.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/save_and_load_context/save_and_load_context.py)       |
-| Waiting for page to load     | wait_for_entire_page_load.py                    | [wait_for_entire_page_load.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/wait_for_entire_page_load/wait_for_entire_page_load.py)       |
-| Default Popup Handler      | default_popup_handler.py                    | [default_popup_handler.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/default_popup_handler/default_popup_handler.py)       |
-| Leveraging List Query      | list_query_usage.py                    | [list_query_usage.py](https://github.com/tinyfish-io/fish-tank/blob/main/examples/list_query_usage/list_query_usage.py)       |
+This list contains basic use case examples that demonstrate the fundamental functionalities of AgentQL. It’s a great starting point for those new to AgentQL or looking to understand its core capabilities.
+
+| Topic                                            | URL                                                                                                                                                     |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Getting started with AgentQL                     | [first_step](https://github.com/tinyfish-io/fish-tank/tree/main/examples/first_steps)                                                                   |
+| Debug AgentQL script                             | [debug_agentql_script](https://github.com/tinyfish-io/fish-tank/tree/main/examples/debug_script)                                                        |
+| Run script in headless browser                   | [run_script_in_headless_browser](https://github.com/tinyfish-io/fish-tank/tree/main/examples/run_script_in_headless_browser)                            |
+| Run script with an external or existing browser  | [interact_with_an_external_or_existing_browser](https://github.com/tinyfish-io/fish-tank/tree/main/examples/interact_with_external_or_existing_browser) |
+| Run script online in Google Colaboratory         | [run_in_google_colab](./examples/run_script_online_in_google_colab)                                                                                     |
+| Compare product prices across different websites | [compare_price_across_sites](https://github.com/tinyfish-io/fish-tank/tree/main/examples/compare_product_prices)                                        |
+| Save and reuse logged in state                   | [save_and_load_authenticated_session](https://github.com/tinyfish-io/fish-tank/tree/main/examples/save_and_load_authenticated_session)                  |
+| Wait for page to load                            | [wait_for_entire_page_load](https://github.com/tinyfish-io/fish-tank/tree/main/examples/wait_for_entire_page_load)                                      |
+| Close popup windows (like promotion form)        | [close_popup](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_popup)                                                                  |
+| Close cookie dialog                              | [close_cookie](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_cookie_dialog)                                                         |
+| Leverage List Query                              | [list_query_usage](https://github.com/tinyfish-io/fish-tank/tree/main/examples/list_query_usage)                                                        |
+
+## Application Examples
+
+In this list, you'll find more sophisticated examples that showcase real-world usage scenarios. These examples are designed to illustrate how AgentQL can be applied in more complex and practical situations.
+
+| Topic                                                                 | URL                                                                                                                                      |
+| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Getting Xpath of a web element returned by AgentQL                    | [xpath](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/xpath)                                                   |
+| Performing sentiment analysis on YouTube comments gathered by AgentQL | [perform_sentiment_analysis](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/perform_sentiment_analysis)         |
+| Collecting data about products given price range                      | [collect_ecommerce_pricing_data](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/collect_ecommerce_pricing_data) |
