@@ -20,10 +20,7 @@ STOCK_NUMBER_QUERY = """
 
 
 def main():
-    with sync_playwright() as playwright:
-        # Launch the browser in headless mode
-        browser = playwright.chromium.launch(headless=True)
-
+    with sync_playwright() as playwright, playwright.chromium.launch(headless=True) as browser:
         # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
         page: Page = browser.new_page()  # type: ignore
 
@@ -40,8 +37,6 @@ def main():
         response = page.query_data(STOCK_NUMBER_QUERY)
 
         print(response)
-
-        browser.close()
 
 
 if __name__ == "__main__":

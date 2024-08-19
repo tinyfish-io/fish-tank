@@ -21,9 +21,7 @@ QUERY = """
 
 
 def main():
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-
+    with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
         # Create a new AgentQL page instance in the browser for web interactions
         page: Page = browser.new_page()  # type: ignore
 
@@ -43,8 +41,6 @@ def main():
             file.write("Style Name, Price\n")
             for sock in response["socks"]:
                 file.write(f"{sock['style_name']},{sock['price']}\n")
-
-        browser.close()
 
 
 if __name__ == "__main__":
