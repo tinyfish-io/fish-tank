@@ -6,13 +6,13 @@ from playwright.sync_api import sync_playwright
 # Set the URL to the desired website
 URL = "https://scrapeme.live/shop"
 
-QUERY = """
+SEARCH_QUERY = """
 {
     search_products_box
 }
 """
 
-QUERY_2 = """
+STOCK_NUMBER_QUERY = """
 {
     number_in_stock
 }
@@ -30,14 +30,14 @@ def main():
         page.goto(URL)
 
         # Use query_elements() method to locate the search box and search button from the page
-        response = page.query_elements(QUERY)
+        response = page.query_elements(SEARCH_QUERY)
 
         # Use Playwright's API to fill the search box and press Enter
         response.search_products_box.type("Charmander")
         page.keyboard.press("Enter")
 
         # Use query_data() method to fetch the president name from the page
-        response = page.query_data(QUERY_2)
+        response = page.query_data(STOCK_NUMBER_QUERY)
 
         print(response)
 
