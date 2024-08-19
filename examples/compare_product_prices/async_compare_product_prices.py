@@ -1,16 +1,29 @@
-"""This example demonstrates how to asynchronously compare product prices across websites with query_data() method."""
+"""This example demonstrates how to asynchronously fetch product prices across websites in parallel with query_data() method."""
 
 import asyncio
 
 from agentql.ext.playwright.async_api import Page
-from playwright.async_api import async_playwright
+from playwright.async_api import BrowserContext, async_playwright
 
 # Set the URL to the desired website
-BESTBUY_URL = "https://www.bestbuy.com/site/nintendo-switch-oled-model-w-joy-con-white/6470923.p?skuId=6470923"
-TARGET_URL = "https://www.target.com/p/nintendo-switch-oled-model-with-white-joy-con/-/A-83887639#lnk=sametab"
-NINETENDO_URL = "https://www.nintendo.com/us/store/products/nintendo-switch-oled-model-white-set/"
+BESTBUY_URL = "https://www.bestbuy.com"
+TELQUEST_URL = "https://www.telquestintl.com"
+EBAY_URL = "https://www.ebay.com"
 
 # Define the queries to interact with the page
+HOME_PAGE_QUERY = """
+{
+    search_input
+    search_button
+}
+"""
+
+PRODUCT_PAGE_QUERY = """
+{
+    nintendo_switch_oled_model_white
+}
+"""
+
 PRODUCT_INFO_QUERY = """
 {
     nintendo_switch_price
@@ -18,38 +31,46 @@ PRODUCT_INFO_QUERY = """
 """
 
 
-async def fetch_price(session_url, query):
-    async with async_playwright() as playwright:
-        browser = await playwright.chromium.launch(headless=False)
+async def fetch_price(context: BrowserContext, session_url, query):
+    """Open the given URL in a new tab and fetch the price of the product."""
+    # Create a page in a new tab in the broswer context and cast it to custom Page type to get access to the AgentQL's querying API
+    page: Page = await context.new_page()  # type: ignore
 
-        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
-        page: Page = await browser.new_page()  # type: ignore
+    await page.goto(session_url)
 
-        await page.goto(session_url)
+    # Search for the product
+    home_response = await page.query_elements(HOME_PAGE_QUERY)
+    await home_response.search_input.fill("Nintendo Switch - OLED Model White")
+    await home_response.search_button.click()
 
-        # Fetch the price data from the page
-        data = await page.query_data(query)
+    # Click on product link
+    product_page_response = await page.query_elements(PRODUCT_PAGE_QUERY)
+    await product_page_response.nintendo_switch_oled_model_white.click()
 
-        await browser.close()
-
+    # Fetch the price data from the page
+    data = await page.query_data(query)
     return data["nintendo_switch_price"]
 
 
 async def get_price_across_websites():
-    # Fetch prices concurrently
-    bestbuy_price, nintendo_price, target_price = await asyncio.gather(
-        fetch_price(BESTBUY_URL, PRODUCT_INFO_QUERY),
-        fetch_price(NINETENDO_URL, PRODUCT_INFO_QUERY),
-        fetch_price(TARGET_URL, PRODUCT_INFO_QUERY),
-    )
+    """Fetch prices concurrently in the same browser session from multiple websites."""
+    async with async_playwright() as playwright, await playwright.chromium.launch(
+        headless=False
+    ) as browser, await browser.new_context() as context:
+        # Open multiple tabs in the same browser context to fetch prices concurrently
+        bestbuy_price, ebay_price, telquest_price = await asyncio.gather(
+            fetch_price(context, BESTBUY_URL, PRODUCT_INFO_QUERY),
+            fetch_price(context, EBAY_URL, PRODUCT_INFO_QUERY),
+            fetch_price(context, TELQUEST_URL, PRODUCT_INFO_QUERY),
+        )
 
-    print(
-        f"""
-    Price at BestBuy: ${bestbuy_price}
-    Price at Ninetendo: ${nintendo_price}
-    Price at Target: ${target_price}
-    """
-    )
+        print(
+            f"""
+        Price at BestBuy: ${bestbuy_price}
+        Price at Ebay: ${ebay_price}
+        Price at Telquest: ${telquest_price}
+        """
+        )
 
 
 if __name__ == "__main__":
