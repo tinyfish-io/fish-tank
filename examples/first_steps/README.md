@@ -4,9 +4,10 @@ This is an example of collecting pricing data from e-commerce website using Agen
 
 ## Run the script
 
-* [Install AgentQL SDK](https://docs.agentql.com/docs/installation/sdk-installation)
-* Save this python file locally as **first_steps.py**
-* Run the following command from the project's folder:
+- [Install AgentQL SDK](https://docs.agentql.com/docs/installation/sdk-installation)
+- Save this python file locally as **first_steps.py**
+- Run the following command from the project's folder:
+
 ```bash
 python3 first_steps.py
 ```

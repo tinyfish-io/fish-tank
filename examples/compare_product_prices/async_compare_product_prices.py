@@ -22,7 +22,7 @@ async def fetch_price(session_url, query):
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(headless=False)
 
-        # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
+        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
         page: Page = await browser.new_page()  # type: ignore
 
         await page.goto(session_url)
