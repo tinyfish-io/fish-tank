@@ -6,11 +6,24 @@ from agentql.ext.playwright.async_api import Page
 from playwright.async_api import BrowserContext, async_playwright
 
 # Set the URL to the desired website
-BESTBUY_URL = "https://www.bestbuy.com/site/nintendo-switch-oled-model-w-joy-con-white/6470923.p?skuId=6470923"
-TARGET_URL = "https://www.target.com/p/nintendo-switch-oled-model-with-white-joy-con/-/A-83887639#lnk=sametab"
-NINETENDO_URL = "https://www.nintendo.com/us/store/products/nintendo-switch-oled-model-white-set/"
+BESTBUY_URL = "https://www.bestbuy.com"
+TELQUEST_URL = "https://www.telquestintl.com"
+EBAY_URL = "https://www.ebay.com"
 
 # Define the queries to interact with the page
+HOME_PAGE_QUERY = """
+{
+    search_input
+    search_button
+}
+"""
+
+PRODUCT_PAGE_QUERY = """
+{
+    nintendo_switch_oled_model_white
+}
+"""
+
 PRODUCT_INFO_QUERY = """
 {
     nintendo_switch_price
@@ -25,6 +38,15 @@ async def fetch_price(context: BrowserContext, session_url, query):
 
     await page.goto(session_url)
 
+    # Search for the product
+    home_response = await page.query_elements(HOME_PAGE_QUERY)
+    await home_response.search_input.fill("Nintendo Switch - OLED Model White")
+    await home_response.search_button.click()
+
+    # Click on product link
+    product_page_response = await page.query_elements(PRODUCT_PAGE_QUERY)
+    await product_page_response.nintendo_switch_oled_model_white.click()
+
     # Fetch the price data from the page
     data = await page.query_data(query)
     return data["nintendo_switch_price"]
@@ -36,17 +58,17 @@ async def get_price_across_websites():
         headless=False
     ) as browser, await browser.new_context() as context:
         # Open multiple tabs in the same browser context to fetch prices concurrently
-        bestbuy_price, nintendo_price, target_price = await asyncio.gather(
+        bestbuy_price, ebay_price, telquest_price = await asyncio.gather(
             fetch_price(context, BESTBUY_URL, PRODUCT_INFO_QUERY),
-            fetch_price(context, NINETENDO_URL, PRODUCT_INFO_QUERY),
-            fetch_price(context, TARGET_URL, PRODUCT_INFO_QUERY),
+            fetch_price(context, EBAY_URL, PRODUCT_INFO_QUERY),
+            fetch_price(context, TELQUEST_URL, PRODUCT_INFO_QUERY),
         )
 
         print(
             f"""
         Price at BestBuy: ${bestbuy_price}
-        Price at Ninetendo: ${nintendo_price}
-        Price at Target: ${target_price}
+        Price at Ebay: ${ebay_price}
+        Price at Telquest: ${telquest_price}
         """
         )
 
