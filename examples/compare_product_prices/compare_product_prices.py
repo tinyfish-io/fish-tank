@@ -18,7 +18,7 @@ PRODUCT_INFO_QUERY = """
 
 def main():
     with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
-        # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
+        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
         page: Page = browser.new_page()  # type: ignore
 
         page.goto(BESTBUY_URL)

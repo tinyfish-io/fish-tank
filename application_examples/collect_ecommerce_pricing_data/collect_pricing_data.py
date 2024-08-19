@@ -7,8 +7,8 @@ import asyncio
 from agentql.ext.playwright.async_api import Page
 from playwright.async_api import async_playwright
 
-# URL of the ecommerce website
-# You can replace it with any other ecommerce website but the queries should be updated accordingly
+# URL of the e-commerce website
+# You can replace it with any other e-commerce website but the queries should be updated accordingly
 URL = "https://www.bestbuy.com"
 
 
