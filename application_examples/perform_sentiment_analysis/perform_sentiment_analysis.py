@@ -22,7 +22,7 @@ QUERY = """
 
 
 def get_comments():
-    with sync_playwright() as playwright:
+    with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
         browser = playwright.chromium.launch(headless=False)
 
         # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API

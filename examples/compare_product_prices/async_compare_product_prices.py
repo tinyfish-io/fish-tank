@@ -31,13 +31,10 @@ PRODUCT_INFO_QUERY = """
 """
 
 
-async def fetch_price(session_url, query):
-    async with async_playwright() as playwright, await playwright.chromium.launch(
-        headless=False
-    ) as browser:
-
-        # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
-        page: Page = await browser.new_page()  # type: ignore
+async def fetch_price(context: BrowserContext, session_url, query):
+    """Open the given URL in a new tab and fetch the price of the product."""
+    # Create a page in a new tab in the broswer context and cast it to custom Page type to get access to the AgentQL's querying API
+    page: Page = await context.new_page()  # type: ignore
 
     await page.goto(session_url)
 
@@ -50,9 +47,8 @@ async def fetch_price(session_url, query):
     product_page_response = await page.query_elements(PRODUCT_PAGE_QUERY)
     await product_page_response.nintendo_switch_oled_model_white.click()
 
-        # Fetch the price data from the page
-        data = await page.query_data(query)
-
+    # Fetch the price data from the page
+    data = await page.query_data(query)
     return data["nintendo_switch_price"]
 
 
