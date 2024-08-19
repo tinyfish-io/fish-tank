@@ -25,7 +25,7 @@ async def main():
     async with DebugManager.debug_mode(), async_playwright() as playwright:
         browser = await playwright.chromium.launch(headless=False)
 
-        # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
+        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
         page: Page = await browser.new_page()  # type: ignore
 
         await page.goto(URL)
