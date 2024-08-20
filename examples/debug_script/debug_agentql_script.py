@@ -1,7 +1,6 @@
 """This example demonstrates how to use AgentQL's Debug Manager to debug the script in synchronous environment."""
 
 import logging
-import time
 
 import agentql
 from agentql.sync_api import DebugManager
@@ -35,9 +34,6 @@ def main():
         # Buggy code that will crash the script. When it crashes, the debug manager will save debug files to designated directory (~/.agentql/debug by default).
         response.search.fill("ivysaur")  # type: ignore
         page.keyboard.press("Enter")
-
-        # Wait for 10 seconds to see the browser in action
-        time.sleep(10)
 
 
 if __name__ == "__main__":
