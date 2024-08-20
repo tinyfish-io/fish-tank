@@ -2,7 +2,7 @@
 
 import asyncio
 
-from agentql.ext.playwright.async_api import Page
+import agentql
 from playwright.async_api import async_playwright
 
 # Set the URL to the desired website
@@ -19,18 +19,16 @@ PRODUCT_INFO_QUERY = """
 
 
 async def fetch_price(session_url, query):
-    async with async_playwright() as playwright:
-        browser = await playwright.chromium.launch(headless=False)
-
-        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
-        page: Page = await browser.new_page()  # type: ignore
+    async with async_playwright() as playwright, await playwright.chromium.launch(
+        headless=False
+    ) as browser:
+        # Create a new page in the browser and wrap it to get access to the AgentQL's querying API
+        page = await agentql.wrap_async(browser.new_page())
 
         await page.goto(session_url)
 
         # Fetch the price data from the page
         data = await page.query_data(query)
-
-        await browser.close()
 
     return data["nintendo_switch_price"]
 

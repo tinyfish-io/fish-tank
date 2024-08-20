@@ -1,8 +1,9 @@
 """This example demonstrates how to use AgentQL's Debug Manager to debug the script in synchronous environment."""
 
 import logging
+import time
 
-from agentql.ext.playwright.sync_api import Page
+import agentql
 from agentql.sync_api import DebugManager
 from playwright.sync_api import sync_playwright
 
@@ -21,11 +22,11 @@ QUERY = """
 
 def main():
     # The first context manager below will enable debug mode for the script.
-    with DebugManager.debug_mode(), sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-
-        # Create a new page in the broswer and cast it to custom Page type to get access to the AgentQL's querying API
-        page: Page = browser.new_page()  # type: ignore
+    with DebugManager.debug_mode(), sync_playwright() as playwright, playwright.chromium.launch(
+        headless=False
+    ) as browser:
+        # Create a new page in the browser and wrap it to get access to the AgentQL's querying API
+        page = agentql.wrap(browser.new_page())
 
         page.goto(URL)
 
@@ -35,7 +36,8 @@ def main():
         response.search.fill("ivysaur")  # type: ignore
         page.keyboard.press("Enter")
 
-        browser.close()
+        # Wait for 10 seconds to see the browser in action
+        time.sleep(10)
 
 
 if __name__ == "__main__":

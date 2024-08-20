@@ -2,7 +2,7 @@
 
 import time
 
-from agentql.ext.playwright.sync_api import Page
+import agentql
 from playwright.sync_api import sync_playwright
 
 # Set the URL to the desired website
@@ -18,11 +18,9 @@ QUERY = """
 
 
 def main():
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-
-        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
-        page: Page = browser.new_page()  # type: ignore
+    with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
+        # Create a new AgentQL page instance in the browser for web interactions
+        page = agentql.wrap(browser.new_page())
 
         page.goto(URL)
 
@@ -37,8 +35,6 @@ def main():
 
         # Wait for 5 seconds to see the browser in action
         time.sleep(5)
-
-        browser.close()
 
 
 if __name__ == "__main__":

@@ -6,6 +6,7 @@ import time
 
 # Import the Page class from the AgentQL Playwright extension
 # This enables the use of the AgentQL Smart Locator and Data Query API
+import agentql
 from agentql.ext.playwright.sync_api import Page
 
 # Import the synchronous playwright library
@@ -39,12 +40,9 @@ NATURAL_LANGUAGE_PROMPT = "Button to display Qwilfish page"
 
 
 def main():
-    with sync_playwright() as playwright:
-        # Launch the Playwright browser
-        browser = playwright.chromium.launch(headless=False)
-
-        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
-        page: Page = browser.new_page()  # type: ignore
+    with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
+        # Create a new page in the browser and wrap it get access to the AgentQL's querying API
+        page = agentql.wrap(browser.new_page())
 
         page.goto(URL)
 
@@ -56,9 +54,6 @@ def main():
         _add_qwilfish_to_cart(page)
 
         print(product_data)
-
-        # Close the browser to free up resources
-        browser.close()
 
 
 def _extract_product_data(page: Page, search_key_word: str) -> dict:

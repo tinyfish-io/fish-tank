@@ -1,10 +1,10 @@
 """This example demonstrates how to interact with an external or existing browser with AgentQL."""
 
-from agentql.ext.playwright.sync_api import Page
+import agentql
 from playwright.sync_api import sync_playwright
 
 # The URL of the external or existing browser you wish to connect.
-WEBSOCKET_URL = "YOUR_WEBSOCKET_URL"
+WEBSOCKET_URL = "http://localhost:9222"
 
 URL = "https://scrapeme.live/shop"
 
@@ -37,8 +37,8 @@ def fetch_data_from_open_website_page():
         # Connect to the browser via Chrome DevTools Protocol
         browser = p.chromium.connect_over_cdp(WEBSOCKET_URL)
 
-        # Get the first page from the opened browser
-        page: Page = browser.contexts[0].pages[0]  # type: ignore
+        # Get the first page from the opened browser and wrap it to get access to the AgentQL's querying API
+        page = agentql.wrap(browser.contexts[0].pages[0])
 
         # Use query_data() method to fetch the data from the page
         response = page.query_data(VIATOR_TOURS_QUERY)
@@ -52,8 +52,8 @@ def interact_with_new_page_in_local_browser():
         # Connect to the browser via Chrome DevTools Protocol
         browser = p.chromium.connect_over_cdp(WEBSOCKET_URL)
 
-        # Create a new tab in the browser window
-        page: Page = browser.contexts[0].new_page()  # type: ignore
+        # Create a new tab in the browser window and wrap it to get access to the AgentQL's querying API
+        page = agentql.wrap(browser.contexts[0].new_page())
 
         page.goto(URL)
 
