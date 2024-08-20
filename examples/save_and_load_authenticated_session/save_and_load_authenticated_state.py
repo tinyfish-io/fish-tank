@@ -64,8 +64,8 @@ def load_signed_in_state():
 
         page.wait_for_page_ready_state()
 
-        # Wait for 5 seconds to see the signed-in page
-        time.sleep(5)
+        # Wait for 10 seconds to see the signed-in page
+        time.sleep(10)
 
 
 if __name__ == "__main__":

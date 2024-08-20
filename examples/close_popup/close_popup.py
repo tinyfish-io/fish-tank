@@ -29,9 +29,8 @@ def main():
 
         # Click the close button to close the popup
         response.popup_form.close_btn.click()
-
-        # Wait for 5 seconds to see the browser in action
-        time.sleep(5)
+        # Wait for 10 seconds to see the browser in action
+        time.sleep(10)
 
 
 if __name__ == "__main__":

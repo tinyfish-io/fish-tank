@@ -51,9 +51,9 @@ def main():
             search_key_word="fish",
         )
 
-        _add_qwilfish_to_cart(page)
-
         print(product_data)
+
+        _add_qwilfish_to_cart(page)
 
 
 def _extract_product_data(page: Page, search_key_word: str) -> dict:
@@ -94,8 +94,8 @@ def _add_qwilfish_to_cart(page: Page):
     if qwilfish_page_btn:
         qwilfish_page_btn.click()
 
-    # Wait for 3 seconds to see the browser action
-    time.sleep(5)
+    # Wait for 10 seconds to see the browser action
+    time.sleep(10)
 
 
 if __name__ == "__main__":

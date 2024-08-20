@@ -19,7 +19,7 @@ QUERY = """
 
 def main():
     with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
-        # Create a new AgentQL page instance in the browser for web interactions
+        # Create a new page in the browser and wrap it to get access to the AgentQL's querying API
         page = agentql.wrap(browser.new_page())
 
         page.goto(URL)
@@ -33,8 +33,8 @@ def main():
             # If so, click the close button to reject cookies
             response.cookies_form.reject_btn.click()
 
-        # Wait for 5 seconds to see the browser in action
-        time.sleep(5)
+        # Wait for 10 seconds to see the browser in action
+        time.sleep(10)
 
 
 if __name__ == "__main__":
