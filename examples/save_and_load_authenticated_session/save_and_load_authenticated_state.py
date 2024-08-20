@@ -53,9 +53,7 @@ def save_signed_in_state():
 
 
 def load_signed_in_state():
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-
+    with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
         # Load the saved signed-in session by creating a new browser context with the saved signed-in state
         context = browser.new_context(storage_state="yelp_login.json")
 
@@ -68,8 +66,6 @@ def load_signed_in_state():
 
         # Wait for 5 seconds to see the signed-in page
         time.sleep(5)
-
-        browser.close()
 
 
 if __name__ == "__main__":
