@@ -3,8 +3,8 @@
 import asyncio
 import logging
 
+import agentql
 from agentql.async_api import DebugManager
-from agentql.ext.playwright.async_api import Page
 from playwright.async_api import async_playwright
 
 logging.basicConfig(level=logging.DEBUG)
@@ -22,11 +22,11 @@ QUERY = """
 
 async def main():
     # The following async context manager will enable debug mode for the script.
-    async with DebugManager.debug_mode(), async_playwright() as playwright:
-        browser = await playwright.chromium.launch(headless=False)
-
-        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
-        page: Page = await browser.new_page()  # type: ignore
+    async with DebugManager.debug_mode(), async_playwright() as playwright, await playwright.chromium.launch(
+        headless=False
+    ) as browser:
+        # Create a new page in the browser and wrap it to get access to the AgentQL's querying API
+        page = await agentql.wrap_async(browser.new_page())
 
         await page.goto(URL)
 
@@ -35,8 +35,6 @@ async def main():
         # Buggy code that will crash the script. When it crashes, the debug manager will save debug files to designated directory (~/.agentql/debug by default).
         await response.search.fill("ivysaur")  # type: ignore
         await page.keyboard.press("Enter")
-
-        await browser.close()
 
 
 if __name__ == "__main__":

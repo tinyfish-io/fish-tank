@@ -2,7 +2,7 @@
 
 import asyncio
 
-from agentql.ext.playwright.async_api import Page
+import agentql
 from playwright.async_api import BrowserContext, async_playwright
 
 # Set the URL to the desired website
@@ -33,9 +33,8 @@ PRODUCT_INFO_QUERY = """
 
 async def fetch_price(context: BrowserContext, session_url, query):
     """Open the given URL in a new tab and fetch the price of the product."""
-    # Create a page in a new tab in the broswer context and cast it to custom Page type to get access to the AgentQL's querying API
-    page: Page = await context.new_page()  # type: ignore
-
+    # Create a page in a new tab in the broswer context and wrap it to get access to the AgentQL's querying API
+    page = await agentql.wrap_async(context.new_page())
     await page.goto(session_url)
 
     # Search for the product

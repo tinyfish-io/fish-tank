@@ -2,7 +2,7 @@
 
 import os
 
-from agentql.ext.playwright.sync_api import Page
+import agentql
 from openai import OpenAI
 from playwright.sync_api import sync_playwright
 
@@ -23,10 +23,8 @@ QUERY = """
 
 def get_comments():
     with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
-        browser = playwright.chromium.launch(headless=False)
-
-        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
-        page: Page = browser.new_page()  # type: ignore
+        # Create a new page in the browser and wrap it to get access to the AgentQL's querying API
+        page = agentql.wrap(browser.new_page())
 
         page.goto(URL)
 
@@ -39,6 +37,7 @@ def get_comments():
 
         # Use query_data() method to fetch the comments from the page
         response = page.query_data(QUERY)
+
         return response
 
 

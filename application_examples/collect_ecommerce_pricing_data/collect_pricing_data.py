@@ -4,6 +4,7 @@
 
 import asyncio
 
+import agentql
 from agentql.ext.playwright.async_api import Page
 from playwright.async_api import async_playwright
 
@@ -150,7 +151,8 @@ async def main():
     async with async_playwright() as playwright, await playwright.chromium.launch(
         headless=False
     ) as browser:
-        page: Page = await browser.new_page()  # type: ignore
+        # Create a new page in the browser and wrap it to get access to the AgentQL's querying API
+        page = await agentql.wrap_async(browser.new_page())
         await page.goto(URL)  # open the target URL
 
         pricing_data = await extract_pricing_data(

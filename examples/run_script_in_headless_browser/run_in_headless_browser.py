@@ -1,6 +1,6 @@
 """This example demonstrates how to run the script in headless browser."""
 
-from agentql.ext.playwright.sync_api import Page
+import agentql
 from playwright.sync_api import sync_playwright
 
 # Set the URL to the desired website
@@ -21,8 +21,8 @@ STOCK_NUMBER_QUERY = """
 
 def main():
     with sync_playwright() as playwright, playwright.chromium.launch(headless=True) as browser:
-        # Create a new page in the browser and cast it to custom Page type to get access to the AgentQL's querying API
-        page: Page = browser.new_page()  # type: ignore
+        # Create a new page in the browser and wrap it to get access to the AgentQL's querying API
+        page = agentql.wrap(browser.new_page())
 
         page.goto(URL)
 
