@@ -4,7 +4,7 @@ This example demonstrates how to get XPath of an element that was fetched with A
 
 ## Run the script
 
-- [Install AgentQL SDK](https://docs.agentql.com/docs/installation/sdk-installation)
+- [Install AgentQL SDK](https://docs.agentql.com/installation/sdk-installation)
 - [Install Playwright Dompath](https://pypi.org/project/playwright-dompath/) with the following command:
 
 ```bash
@@ -20,4 +20,4 @@ python3 xpath.py
 
 ## Play with the query
 
-Install the [AgentQL Debugger Chrome extension](https://docs.agentql.com/docs/installation/chrome-extension-installation/) to play with the AgentQL query. [Learn more about the AgentQL query language](https://docs.agentql.com/docs/agentql-query/query-intro)
+Install the [AgentQL Debugger Chrome extension](https://docs.agentql.com/installation/chrome-extension-installation) to play with the AgentQL query. [Learn more about the AgentQL query language](https://docs.agentql.com/agentql-query/query-intro)
