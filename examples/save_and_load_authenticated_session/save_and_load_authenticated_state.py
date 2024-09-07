@@ -47,6 +47,7 @@ def save_signed_in_state():
         response_credentials.sign_in_form.log_in_btn.click()
 
         page.wait_for_page_ready_state()
+        time.sleep(5)
 
         # Save the signed-in state
         browser.contexts[0].storage_state(path="yelp_login.json")
