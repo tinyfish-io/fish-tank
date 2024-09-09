@@ -4,7 +4,15 @@
 
 You will need your [API Key](https://dev.agentql.com/) and the [AgentQL SDK](https://docs.agentql.com/installation/sdk-installation). You can get set up in less than five minutes with the [AgentQL Quick Start](https://docs.agentql.com/quick-start).
 
-You may want to [set up a python virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/) before you begin. Then you can [install Agentql in the virtual env](https://pypi.org/project/agentql/).
+## Virtual Environment
+
+This project uses [Poetry](https://python-poetry.org/docs/) for dependency and virtual environment management.
+You don't have to use Poetry to run the examples, but it will make it easier to manage dependencies and isolate the project environment.
+If you choose to use Poetry follow these simple steps to get everything setup:
+
+- **Install Poetry**. Follow [Poetry official guidelines here](https://python-poetry.org/docs/#installing-with-the-official-installer)
+- **Install dependencies**. Run `poetry install` in the project root directory
+- **Activate the virtual environment**. Run `poetry shell` to activate the virtual environment
 
 ## Examples
 
