@@ -1,7 +1,5 @@
 """This example demonstrates how to save and load a authenticated state (i.e. signed-in state) using AgentQL."""
 
-import time
-
 import agentql
 from playwright.sync_api import sync_playwright
 
@@ -65,7 +63,7 @@ def load_signed_in_state():
         page.wait_for_page_ready_state()
 
         # Wait for 10 seconds to see the signed-in page
-        time.sleep(10)
+        page.wait_for_timeout(10000)
 
 
 if __name__ == "__main__":

@@ -1,7 +1,5 @@
 """This example demonstrates how to close popup windows (like promotion form) with AgentQL."""
 
-import time
-
 import agentql
 from playwright.sync_api import sync_playwright
 
@@ -30,7 +28,7 @@ def main():
         # Click the close button to close the popup
         response.popup_form.close_btn.click()
         # Wait for 10 seconds to see the browser in action
-        time.sleep(10)
+        page.wait_for_timeout(10000)
 
 
 if __name__ == "__main__":
