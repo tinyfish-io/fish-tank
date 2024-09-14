@@ -2,8 +2,6 @@
 
 """This is an example of collecting pricing data from e-commerce website using AgentQL."""
 
-import time
-
 # Import the Page class from the AgentQL Playwright extension
 # This enables the use of the AgentQL Smart Locator and Data Query API
 import agentql
@@ -95,7 +93,7 @@ def _add_qwilfish_to_cart(page: Page):
         qwilfish_page_btn.click()
 
     # Wait for 10 seconds to see the browser action
-    time.sleep(10)
+    page.wait_for_timeout(10000)
 
 
 if __name__ == "__main__":
