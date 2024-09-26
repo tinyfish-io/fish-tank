@@ -45,10 +45,11 @@ def save_signed_in_state():
         response_credentials.sign_in_form.email_input.fill(EMAIL)
         response_credentials.sign_in_form.password_input.fill(PASSWORD)
         response_credentials.sign_in_form.log_in_btn.click()
+        # ajaja
 
         page.wait_for_page_ready_state()
 
-        #wait for timeout in order to save state
+        # wait for timeout in order to save state
         page.wait_for_timeout(5000)
 
         # Save the signed-in state
