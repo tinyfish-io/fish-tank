@@ -46,6 +46,9 @@ def save_signed_in_state():
 
         page.wait_for_page_ready_state()
 
+        # wait for timeout in order to save state
+        page.wait_for_timeout(5000)
+
         # Save the signed-in state
         browser.contexts[0].storage_state(path="yelp_login.json")
 
