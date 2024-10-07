@@ -31,7 +31,7 @@ This list contains basic use case examples that demonstrate the fundamental func
 | Close popup windows (like promotion form)        | [close_popup](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_popup)                                                                  |
 | Close cookie dialog                              | [close_cookie](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_cookie_dialog)                                                         |
 | Leverage List Query                              | [list_query_usage](https://github.com/tinyfish-io/fish-tank/tree/main/examples/list_query_usage)                                                        |
-| Leverage get_by_prompt method                              | [get_by_prompt](https://github.com/tinyfish-io/fish-tank/tree/main/examples/get_by_prompt)                                                        |
+| Leverage get_by_prompt method                    | [get_by_prompt](https://github.com/tinyfish-io/fish-tank/tree/main/examples/get_by_prompt)                                                              |
 
 ## Application Examples
 
@@ -42,3 +42,4 @@ In this list, you'll find more sophisticated examples that showcase real-world u
 | Getting Xpath of a web element returned by AgentQL                    | [xpath](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/xpath)                                                   |
 | Performing sentiment analysis on YouTube comments gathered by AgentQL | [perform_sentiment_analysis](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/perform_sentiment_analysis)         |
 | Collecting data about products given price range                      | [collect_ecommerce_pricing_data](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/collect_ecommerce_pricing_data) |
+| Filling out and submitting a form                                     | [submit_form](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/submit-form)                                       |
