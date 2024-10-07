@@ -31,6 +31,7 @@ This list contains basic use case examples that demonstrate the fundamental func
 | Close popup windows (like promotion form)        | [close_popup](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_popup)                                                                  |
 | Close cookie dialog                              | [close_cookie](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_cookie_dialog)                                                         |
 | Leverage List Query                              | [list_query_usage](https://github.com/tinyfish-io/fish-tank/tree/main/examples/list_query_usage)                                                        |
+| Leverage get_by_prompt method                              | [get_by_prompt](https://github.com/tinyfish-io/fish-tank/tree/main/examples/get_by_prompt)                                                        |
 
 ## Application Examples
 
