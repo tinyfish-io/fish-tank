@@ -11,41 +11,6 @@ from playwright.async_api import async_playwright
 # You can replace it with any other e-commerce website but the queries should be updated accordingly
 URL = "https://formsmarts.com/html-form-example"
 
-form_text_input = {
-    "first_name": "John",
-    "last_name": "Doe",
-    "email": "johndoe@agentql.com",
-    "inquiry_text_box": "I want to learn more about AgentQL",
-}
-
-form_select_input = {
-    "subject_of_inquiry": "Sales Inquiry",
-}
-
-
-def construct_query(form_input):
-    """Construct the query string based on form_input keys."""
-    fields = "\n".join(form_input.keys())
-    return f"""
-    {{
-        {fields}
-        submit_btn
-    }}
-    """
-
-
-async def fill_form(response, form_text_input: dict):
-    """Fill the form with form_text_input."""
-    for key, value in form_text_input.items():
-        await getattr(response, key).fill(value)
-
-
-async def select_option(response, form_select_input: dict):
-    """Select the form_select_input."""
-    for key, value in form_select_input.items():
-        print(f"Selecting {key} with value: {value}")
-        await getattr(response, key).select_option(label=value)
-
 
 async def main():
     """Main function."""
@@ -56,18 +21,23 @@ async def main():
         page = await agentql.wrap_async(browser.new_page())
         await page.goto(URL)  # open the target URL
 
-        form_input = {**form_text_input, **form_select_input}
+        form_query = """
+        {
+            first_name
+            last_name
+            email
+            subject_of_inquiry
+            inquiry_text_box
+            submit_btn
+        }
+        """
+        response = await page.query_elements(form_query)
 
-        query = construct_query(form_input)
-        print(f"Query: {query}")
-
-        await page.wait_for_timeout(3000)  # wait for 3 seconds
-        response = await page.query_elements(query)
-
-        await fill_form(response, form_text_input)
-        await select_option(response, form_select_input)
-
-        await response.wait_for_timeout(3000)  # wait for 3 seconds
+        await response.first_name.fill("John")
+        await response.last_name.fill("Doe")
+        await response.email.fill("johndoe@agentql.com")
+        await response.subject_of_inquiry.select_option(label="Sales Inquiry")
+        await response.inquiry_text_box.fill("I want to learn more about AgentQL")
 
         # Submit the form
         await response.submit_btn.click()
