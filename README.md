@@ -34,6 +34,7 @@ This list contains basic use case examples that demonstrate the fundamental func
 | Leverage get_by_prompt method                    | [get_by_prompt](https://github.com/tinyfish-io/fish-tank/tree/main/examples/get_by_prompt)                                                              |
 | Log into Site                                    | [log_into_sites](https://github.com/tinyfish-io/fish-tank/tree/main/examples/log_into_sites)                                                            |
 
+
 ## Application Examples
 
 In this list, you'll find more sophisticated examples that showcase real-world usage scenarios. These examples are designed to illustrate how AgentQL can be applied in more complex and practical situations.
@@ -43,3 +44,4 @@ In this list, you'll find more sophisticated examples that showcase real-world u
 | Getting Xpath of a web element returned by AgentQL                    | [xpath](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/xpath)                                                   |
 | Performing sentiment analysis on YouTube comments gathered by AgentQL | [perform_sentiment_analysis](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/perform_sentiment_analysis)         |
 | Collecting data about products given price range                      | [collect_ecommerce_pricing_data](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/collect_ecommerce_pricing_data) |
+| Filling out and submitting a form                                     | [submit_form](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/submit-form)                                       |
