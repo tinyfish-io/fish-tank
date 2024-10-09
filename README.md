@@ -33,7 +33,7 @@ This list contains basic use case examples that demonstrate the fundamental func
 | Leverage List Query                              | [list_query_usage](https://github.com/tinyfish-io/fish-tank/tree/main/examples/list_query_usage)                                                        |
 | Leverage get_by_prompt method                    | [get_by_prompt](https://github.com/tinyfish-io/fish-tank/tree/main/examples/get_by_prompt)                                                              |
 | Log into Site                                    | [log_into_sites](https://github.com/tinyfish-io/fish-tank/tree/main/examples/log_into_sites)                                                            |
-
+| Infinite scrolling content load                  | [infinite_scroll](https://github.com/tinyfish-io/fish-tank/tree/main/examples/infinite_scroll)                                                          |
 
 ## Application Examples
 
