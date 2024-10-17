@@ -16,6 +16,7 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/pypi/pyversions/agentql" alt="Python version" />
   <img src="https://img.shields.io/github/stars/tinyfish-io/agentql" alt="GitHub Repo stars" />
   <img src="https://img.shields.io/github/watchers/tinyfish-io/agentql" alt="GitHub watchers" />
 </p>
