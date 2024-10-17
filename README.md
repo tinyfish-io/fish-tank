@@ -15,11 +15,12 @@
   </a>
 </p>
 
-</div>
+<p align="center">
+  <img src="https://img.shields.io/github/stars/tinyfish-io/agentql" alt="GitHub Repo stars" />
+  <img src="https://img.shields.io/github/watchers/tinyfish-io/agentql" alt="GitHub watchers" />
+</p>
 
-![GitHub Repo stars](https://img.shields.io/github/stars/tinyfish-io/agentql)
-![GitHub watchers](https://img.shields.io/github/watchers/tinyfish-io/agentql)
-![PyPI version](https://badge.fury.io/py/agentql.svg)](https://badge.fury.io/py/agentql)
+</div>
 
 ## What is AgentQL?
 
@@ -141,7 +142,7 @@ For comprehensive guides and API references, check out our [official documentati
 If you find AgentQL helpful, please consider giving us a star on GitHub! It helps us reach more developers and continue improving the project.
 
 <div align="center">
-![GitHub Repo stars](https://img.shields.io/github/stars/tinyfish-io/agentql)
+  <img src="https://img.shields.io/github/stars/tinyfish-io/agentql" alt="GitHub Repo stars" />
 </div>
 
 ## Get in touch
