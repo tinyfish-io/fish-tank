@@ -29,12 +29,12 @@ AgentQL is an AI-powered query language for scraping web sites and automating wo
 ### Features
 
 * **Python and Playwright** [AgentQL's Python SDK](https://docs.agentql.com/installation/sdk-installation) seamlessly integrates with Playwright for advanced automation and testing.
-* **Cross-Site Compatibility** let's you use the same query across different sites with similar content.
-* **Structured output** You define shape your data with your query.
-* **Natural Language Selectors** Find elements and data anywhere on a site using intuitive queries.
-* **Transforms _and_ extracts** Use transforms to manipulate data in your queries.
-* **Works on any page** public or private, any site, any URL, even behind authentication.
-* **Resiliance to UI Changes** means queries work regardless of how a page's structure changes over time.
+* **Cross-site compatibility** lets you use the same query across different sites with similar content.
+* **Structured output** defined by the shape of your query.
+* **Natural language selectors** find elements and data anywhere on a site using intuitive queries.
+* **Transforms _and_ extracts** data in your queries.
+* **Works on any page,** public or private, any site, any URL, even behind authentication.
+* **Resiliance to UI changes** means queries work regardless of how a page's structure changes over time.
 
 ### Tools
 
