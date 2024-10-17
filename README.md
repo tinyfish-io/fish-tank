@@ -4,21 +4,15 @@
 <h2>AI-powered web scraping and automation</h2>
 
 <p align="center">
-  <a href="https://twitter.com/agentql">
-    <img src="https://img.shields.io/badge/Follow%20on%20X-000000?style=for-the-badge&logo=x&logoColor=white" alt="Follow on X" />
-  </a>
-  <a href="https://www.linkedin.com/company/tinyfish-ai">
-    <img src="https://img.shields.io/badge/Follow%20on%20LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Follow on LinkedIn" />
-  </a>
-  <a href="https://discord.gg/agentql">
-    <img src="https://img.shields.io/badge/Join%20our%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join our Discord" />
-  </a>
+  <a href="https://twitter.com/agentql"><img src="https://img.shields.io/badge/Follow%20on%20X-000000?style=for-the-badge&logo=x&logoColor=white" alt="Follow on X" /></a>
+  <a href="https://www.linkedin.com/company/tinyfish-ai"><img src="https://img.shields.io/badge/Follow%20on%20LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Follow on LinkedIn" /></a>
+  <a href="https://discord.gg/agentql"><img src="https://img.shields.io/badge/Join%20our%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join our Discord" /></a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/pypi/pyversions/agentql" alt="Python version" />
-  <img src="https://img.shields.io/github/stars/tinyfish-io/agentql" alt="GitHub Repo stars" />
-  <img src="https://img.shields.io/github/watchers/tinyfish-io/agentql" alt="GitHub watchers" />
+  <a href="https://pypi.org/project/agentql"><img src="https://img.shields.io/pypi/pyversions/agentql" alt="Python version" /></a>
+  <a href="#repository-details-container"><img src="https://img.shields.io/github/stars/tinyfish-io/agentql" alt="GitHub Repo stars" /></a>
+  <a href="#repository-details-container"><img src="https://img.shields.io/github/watchers/tinyfish-io/agentql" alt="GitHub watchers" /></a>
 </p>
 
 </div>
@@ -143,7 +137,7 @@ For comprehensive guides and API references, check out our [official documentati
 If you find AgentQL helpful, please consider giving us a star on GitHub! It helps us reach more developers and continue improving the project.
 
 <div align="center">
-  <img src="https://img.shields.io/github/stars/tinyfish-io/agentql" alt="GitHub Repo stars" />
+  <a href="#repository-details-container"><img src="https://img.shields.io/github/stars/tinyfish-io/agentql" alt="GitHub Repo stars" /></a>
 </div>
 
 ## Get in touch
