@@ -83,7 +83,7 @@ with sync_playwright() as playwright, playwright.chromium.launch(headless=False)
     print(response)
 ```
 
-### Automation extraction with [`get_by_prompt`](https://docs.agentql.com/api-references/agentql-page#getbyprompt) and [`query_elements`](https://docs.agentql.com/api-references/agentql-page#queryelements)
+### Automation with [`get_by_prompt`](https://docs.agentql.com/api-references/agentql-page#getbyprompt) and [`query_elements`](https://docs.agentql.com/api-references/agentql-page#queryelements)
 
 ```python
 import agentql
