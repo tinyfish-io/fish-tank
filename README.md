@@ -124,19 +124,19 @@ with sync_playwright() as playwright, playwright.chromium.launch(headless=False)
 
 ### More examples
 
-- [Getting started with AgentQL](https://github.com/tinyfish-io/fish-tank/tree/main/examples/first_steps)
-- [Debug AgentQL script](https://github.com/tinyfish-io/fish-tank/tree/main/examples/debug_script)
-- [Run script in headless browser](https://github.com/tinyfish-io/fish-tank/tree/main/examples/run_script_in_headless_browser)
-- [Run script with an external or existing browser](https://github.com/tinyfish-io/fish-tank/tree/main/examples/interact_with_external_or_existing_browser)
+- [Getting started with AgentQL](https://github.com/tinyfish-io/agentql/tree/main/examples/first_steps)
+- [Debug AgentQL script](https://github.com/tinyfish-io/agentql/tree/main/examples/debug_script)
+- [Run script in headless browser](https://github.com/tinyfish-io/agentql/tree/main/examples/run_script_in_headless_browser)
+- [Run script with an external or existing browser](https://github.com/tinyfish-io/agentql/tree/main/examples/interact_with_external_or_existing_browser)
 - [Run script online in Google Colaboratory](./examples/run_script_online_in_google_colab)
-- [Compare product prices across different websites](https://github.com/tinyfish-io/fish-tank/tree/main/examples/compare_product_prices)
-- [Save and reuse logged in state](https://github.com/tinyfish-io/fish-tank/tree/main/examples/save_and_load_authenticated_session)
-- [Wait for page to load](https://github.com/tinyfish-io/fish-tank/tree/main/examples/wait_for_entire_page_load)
-- [Close popup windows (like promotion form)](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_popup)
-- [Close cookie dialog](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_cookie_dialog)
-- [Leverage List Query](https://github.com/tinyfish-io/fish-tank/tree/main/examples/list_query_usage)
-- [Leverage get_by_prompt method](https://github.com/tinyfish-io/fish-tank/tree/main/examples/get_by_prompt)
-- [Log into Site](https://github.com/tinyfish-io/fish-tank/tree/main/examples/log_into_sites)
+- [Compare product prices across different websites](https://github.com/tinyfish-io/agentql/tree/main/examples/compare_product_prices)
+- [Save and reuse logged in state](https://github.com/tinyfish-io/agentql/tree/main/examples/save_and_load_authenticated_session)
+- [Wait for page to load](https://github.com/tinyfish-io/agentql/tree/main/examples/wait_for_entire_page_load)
+- [Close popup windows (like promotion form)](https://github.com/tinyfish-io/agentql/tree/main/examples/close_popup)
+- [Close cookie dialog](https://github.com/tinyfish-io/agentql/tree/main/examples/close_cookie_dialog)
+- [Leverage List Query](https://github.com/tinyfish-io/agentql/tree/main/examples/list_query_usage)
+- [Leverage get_by_prompt method](https://github.com/tinyfish-io/agentql/tree/main/examples/get_by_prompt)
+- [Log into Site](https://github.com/tinyfish-io/agentql/tree/main/examples/log_into_sites)
 
 For comprehensive guides and API references, check out our [official documentation](https://docs.agentql.com).
 
