@@ -1,47 +1,153 @@
-# AgentQL examples and tutorials
+<div align="center">
 
-## Get started with AgentQL
+<h1>AgentQL</h1>
+<h2>AI-powered web scraping and automation</h2>
 
-You will need your [API Key](https://dev.agentql.com/) and the [AgentQL SDK](https://docs.agentql.com/installation/sdk-installation). You can get set up in less than five minutes with the [AgentQL Quick Start](https://docs.agentql.com/quick-start).
+<p align="center">
+  <a href="https://twitter.com/agentql">
+    <img src="https://img.shields.io/badge/Follow%20on%20X-000000?style=for-the-badge&logo=x&logoColor=white" alt="Follow on X" />
+  </a>
+  <a href="https://www.linkedin.com/company/tinyfish-ai">
+    <img src="https://img.shields.io/badge/Follow%20on%20LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Follow on LinkedIn" />
+  </a>
+  <a href="https://discord.gg/agentql">
+    <img src="https://img.shields.io/badge/Join%20our%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join our Discord" />
+  </a>
+</p>
 
-## Virtual Environment
+</div>
 
-This project uses [Poetry](https://python-poetry.org/docs/) for dependency and virtual environment management.
-You don't have to use Poetry to run the examples, but it will make it easier to manage dependencies and isolate the project environment.
-If you choose to use Poetry follow these simple steps to get everything setup:
+![GitHub Repo stars](https://img.shields.io/github/stars/tinyfish-io/agentql)
+![GitHub watchers](https://img.shields.io/github/watchers/tinyfish-io/agentql)
+![PyPI version](https://badge.fury.io/py/agentql.svg)](https://badge.fury.io/py/agentql)
 
-- **Install Poetry**. Follow [Poetry official guidelines here](https://python-poetry.org/docs/#installing-with-the-official-installer)
-- **Install dependencies**. Run `poetry install` in the project root directory
-- **Activate the virtual environment**. Run `poetry shell` to activate the virtual environment
+## What is AgentQL?
 
-## Examples
+AgentQL is an AI-powered query language for scraping web sites and automating workflows. It uses natural language queries to pinpoint data and elements on any web page, including authenticated and dynamically generated content. Users can define structured data output and apply transforms within queries. AgentQL's natural language selectors find elements intuitively based on the content of the web page and work across similar web sites, self-healing as UI changes over time.
 
-This list contains basic use case examples that demonstrate the fundamental functionalities of AgentQL. It’s a great starting point for those new to AgentQL or looking to understand its core capabilities.
+<p align="center">
+  TODO <img src="path_to_logo_or_demo_gif" alt="AgentQL Demo" width="600">
+</p>
 
-| Topic                                            | URL                                                                                                                                                     |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Getting started with AgentQL                     | [first_step](https://github.com/tinyfish-io/fish-tank/tree/main/examples/first_steps)                                                                   |
-| Debug AgentQL script                             | [debug_agentql_script](https://github.com/tinyfish-io/fish-tank/tree/main/examples/debug_script)                                                        |
-| Run script in headless browser                   | [run_script_in_headless_browser](https://github.com/tinyfish-io/fish-tank/tree/main/examples/run_script_in_headless_browser)                            |
-| Run script with an external or existing browser  | [interact_with_an_external_or_existing_browser](https://github.com/tinyfish-io/fish-tank/tree/main/examples/interact_with_external_or_existing_browser) |
-| Run script online in Google Colaboratory         | [run_in_google_colab](./examples/run_script_online_in_google_colab)                                                                                     |
-| Compare product prices across different websites | [compare_price_across_sites](https://github.com/tinyfish-io/fish-tank/tree/main/examples/compare_product_prices)                                        |
-| Save and reuse logged in state                   | [save_and_load_authenticated_session](https://github.com/tinyfish-io/fish-tank/tree/main/examples/save_and_load_authenticated_session)                  |
-| Wait for page to load                            | [wait_for_entire_page_load](https://github.com/tinyfish-io/fish-tank/tree/main/examples/wait_for_entire_page_load)                                      |
-| Close popup windows (like promotion form)        | [close_popup](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_popup)                                                                  |
-| Close cookie dialog                              | [close_cookie](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_cookie_dialog)                                                         |
-| Leverage List Query                              | [list_query_usage](https://github.com/tinyfish-io/fish-tank/tree/main/examples/list_query_usage)                                                        |
-| Leverage get_by_prompt method                    | [get_by_prompt](https://github.com/tinyfish-io/fish-tank/tree/main/examples/get_by_prompt)                                                              |
-| Log into Site                                    | [log_into_sites](https://github.com/tinyfish-io/fish-tank/tree/main/examples/log_into_sites)                                                            |
+### Features
 
+- **Python and Playwright** [AgentQL's Python SDK](https://docs.agentql.com/installation/sdk-installation) seamlessly integrates with Playwright for advanced automation and testing.
+- **Cross-Site Compatibility** let's you use the same query across different sites with similar content.
+* **Structured output** You define shape your data with your query.
+* **Natural Language Selectors** Find elements and data anywhere on a site using intuitive queries.
+* **Transforms _and_ extracts** Use transforms to manipulate data in your queries.
+* **Works on any page** public or private, any site, any URL, even behind authentication.
+- **Resiliance to UI Changes** means queries work regardless of how a page's structure changes over time.
 
-## Application Examples
+### Tools
 
-In this list, you'll find more sophisticated examples that showcase real-world usage scenarios. These examples are designed to illustrate how AgentQL can be applied in more complex and practical situations.
+- **[Python SDK](https://docs.agentql.com/installation/sdk-installation)** for running automation and scraping scripts with AgentQL queries.
+- **[Debugger Browser Extension](https://chromewebstore.google.com/detail/agentql-debugger/idnejmodeepdobpinkkgpkeabkabhhej)** lets you debug and finesse queries in real-time on live sites.
+- **[AgentQL Query Language](https://docs.agentql.com/agentql-query/query-intro)** lets you define queries with natural language.
+- **[Playground](https://playground.agentql.com/)** for playing with AgentQL lets you export python scripts and optimize queries with prompts.
 
-| Topic                                                                 | URL                                                                                                                                      |
-| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Getting Xpath of a web element returned by AgentQL                    | [xpath](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/xpath)                                                   |
-| Performing sentiment analysis on YouTube comments gathered by AgentQL | [perform_sentiment_analysis](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/perform_sentiment_analysis)         |
-| Collecting data about products given price range                      | [collect_ecommerce_pricing_data](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/collect_ecommerce_pricing_data) |
-| Filling out and submitting a form                                     | [submit_form](https://github.com/tinyfish-io/fish-tank/tree/main/application_examples/submit-form)                                       |
+## Quick Start
+
+1. Install Python SDK and dependencies via your terminal:
+
+  ```bash
+  pip3 install agentql
+  agentql init
+  ```
+
+2. Copy and paste [your API key](https://docs.agentql.com/dev) into the terminal.
+
+3. Save one of the following scripts as **example.py** and run the following from your terminal:
+
+  ```bash
+  python3 example.py
+  ```
+
+## Example Scripts
+
+### Data extraction with [`query_data`](https://docs.agentql.com/api-references/agentql-page#querydata)
+
+```python
+import agentql
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
+    page = agentql.wrap(browser.new_page())
+    page.goto("https://scrapeme.live/shop/")
+
+    # use your own words to describe what you're looking for
+    QUERY = """
+    {
+        products[] {
+            name
+            price
+        }
+    }
+    """
+
+    # query_data returns data from the page
+    response = page.query_data(QUERY)
+
+    print(response)
+```
+
+### Automation extraction with [`get_by_prompt`](https://docs.agentql.com/api-references/agentql-page#getbyprompt) and [`query_elements`](https://docs.agentql.com/api-references/agentql-page#queryelements)
+
+```python
+import agentql
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as playwright, playwright.chromium.launch(headless=False) as browser:
+    page = agentql.wrap(browser.new_page())
+    page.goto("https://duckduckgo.com")
+
+    # use your own words to describe what you're looking for
+    QUERY = """
+    {
+        search_box
+        search_button
+    }
+    """
+    # query_elements returns multiple elements to perform operations on
+    response = page.query_elements(QUERY)
+
+    response.search_box.fill("AgentQL")
+    response.search_button.click()
+
+    # get_by_prompt returns one element to perform operations on based on the content you pass to it
+    images = page.get_by_prompt("images link")
+    images.click()
+
+    # Used only for demo purposes. It allows you to see the effect of the script.
+    page.wait_for_timeout(10000)
+```
+
+### More examples
+
+- [Getting started with AgentQL](https://github.com/tinyfish-io/fish-tank/tree/main/examples/first_steps)
+- [Debug AgentQL script](https://github.com/tinyfish-io/fish-tank/tree/main/examples/debug_script)
+- [Run script in headless browser](https://github.com/tinyfish-io/fish-tank/tree/main/examples/run_script_in_headless_browser)
+- [Run script with an external or existing browser](https://github.com/tinyfish-io/fish-tank/tree/main/examples/interact_with_external_or_existing_browser)
+- [Run script online in Google Colaboratory](./examples/run_script_online_in_google_colab)
+- [Compare product prices across different websites](https://github.com/tinyfish-io/fish-tank/tree/main/examples/compare_product_prices)
+- [Save and reuse logged in state](https://github.com/tinyfish-io/fish-tank/tree/main/examples/save_and_load_authenticated_session)
+- [Wait for page to load](https://github.com/tinyfish-io/fish-tank/tree/main/examples/wait_for_entire_page_load)
+- [Close popup windows (like promotion form)](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_popup)
+- [Close cookie dialog](https://github.com/tinyfish-io/fish-tank/tree/main/examples/close_cookie_dialog)
+- [Leverage List Query](https://github.com/tinyfish-io/fish-tank/tree/main/examples/list_query_usage)
+- [Leverage get_by_prompt method](https://github.com/tinyfish-io/fish-tank/tree/main/examples/get_by_prompt)
+- [Log into Site](https://github.com/tinyfish-io/fish-tank/tree/main/examples/log_into_sites)
+
+For comprehensive guides and API references, check out our [official documentation](https://docs.agentql.com).
+
+## Show Your Support 🌟
+
+If you find AgentQL helpful, please consider giving us a star on GitHub! It helps us reach more developers and continue improving the project.
+
+<div align="center">
+![GitHub Repo stars](https://img.shields.io/github/stars/tinyfish-io/agentql)
+</div>
+
+## Get in touch
+
+For questions, feedback, or support, join our [Discord community](https://discord.gg/agentql). You can follow us on [GitHub](https://github.com/tinyfish-io/), [Twitter](https://x.com/AgentQL), and [LinkedIn](https://www.linkedin.com/company/95728009)!
